@@ -114,7 +114,6 @@
   }
   .sum-card .value small { font-size: 0.8rem; }
 
-  /* タイムライン */
   .timeline {
     background: var(--card);
     border: 1.5px solid var(--line);
@@ -147,37 +146,29 @@
     z-index: 1;
   }
   .tl-dot.done { background: var(--leaf); box-shadow: 0 0 0 2px var(--leaf); }
-  .tl-dot.now { background: var(--sun); box-shadow: 0 0 0 2px var(--sun); animation: pulse 1.8s infinite; }
+  .tl-dot.now  { background: var(--sun);  box-shadow: 0 0 0 2px var(--sun); animation: pulse 1.8s infinite; }
   .tl-dot.future { background: #fff; }
+  .tl-dot.goal { background: var(--rose); box-shadow: 0 0 0 2px var(--rose); }
   @keyframes pulse {
     0%,100% { box-shadow: 0 0 0 2px var(--sun); }
-    50% { box-shadow: 0 0 0 6px var(--sun-soft); }
+    50%      { box-shadow: 0 0 0 6px var(--sun-soft); }
   }
   .tl-body { flex: 1; }
-  .tl-date {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--muted);
-  }
+  .tl-date { font-size: 0.72rem; font-weight: 700; color: var(--muted); }
   .tl-date.hot { color: var(--sun); }
-  .tl-task {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-top: 1px;
-  }
-  .tl-sub { font-size: 0.76rem; color: var(--muted); margin-top: 2px; }
+  .tl-date.goal { color: var(--rose); }
+  .tl-task { font-size: 0.9rem; font-weight: 700; margin-top: 1px; }
+  .tl-sub  { font-size: 0.76rem; color: var(--muted); margin-top: 2px; }
   .tl-badge {
     display: inline-block;
-    font-size: 0.64rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 9px;
-    margin-left: 6px;
-    vertical-align: middle;
+    font-size: 0.64rem; font-weight: 700;
+    padding: 2px 8px; border-radius: 9px;
+    margin-left: 6px; vertical-align: middle;
   }
-  .tl-badge.done { background: var(--leaf-soft); color: var(--leaf-dark); }
-  .tl-badge.now { background: var(--sun-soft); color: var(--sun); }
+  .tl-badge.done   { background: var(--leaf-soft); color: var(--leaf-dark); }
+  .tl-badge.now    { background: var(--sun-soft);  color: var(--sun); }
   .tl-badge.future { background: var(--gray-soft); color: var(--muted); }
+  .tl-badge.goal   { background: var(--rose-soft); color: var(--rose); }
 
   .company {
     background: var(--card);
@@ -196,35 +187,27 @@
     gap: 10px;
     color: #fff;
   }
-  .company-head.dream { background: linear-gradient(135deg,#6b8e5f,#4e7042); }
+  .company-head.dream    { background: linear-gradient(135deg,#6b8e5f,#4e7042); }
   .company-head.hinokiya { background: linear-gradient(135deg,#c98a3d,#a86a26); }
-  .company-head.aiful { background: linear-gradient(135deg,#7d8a92,#5f6b73); }
-  .company-head.clever { background: linear-gradient(135deg,#9aa0a6,#7c828a); }
+  .company-head.aiful    { background: linear-gradient(135deg,#7d8a92,#5f6b73); }
+  .company-head.clever   { background: linear-gradient(135deg,#9aa0a6,#7c828a); }
 
-  .company-name {
-    font-family: 'Zen Maru Gothic', serif;
-    font-size: 1.15rem;
-    font-weight: 900;
-  }
+  .company-name { font-family: 'Zen Maru Gothic', serif; font-size: 1.15rem; font-weight: 900; }
   .company-name small {
-    display: block;
-    font-size: 0.68rem;
-    font-weight: 400;
-    opacity: 0.9;
-    margin-top: 2px;
+    display: block; font-size: 0.68rem; font-weight: 400;
+    opacity: 0.9; margin-top: 2px;
   }
   .status {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 20px;
+    font-size: 0.7rem; font-weight: 700;
+    padding: 5px 12px; border-radius: 20px;
     white-space: nowrap;
     background: rgba(255,255,255,0.25);
   }
-  .status.done { background: #fff; color: var(--leaf-dark); }
-  .status.wait { background: #fff; color: var(--sun); }
-  .status.todo { background: rgba(255,255,255,0.2); color: #fff; }
-  .status.ref { background: rgba(255,255,255,0.3); color: #fff; }
+  .status.done  { background: #fff; color: var(--leaf-dark); }
+  .status.wait  { background: #fff; color: var(--sun); }
+  .status.now   { background: var(--sun-soft); color: var(--sun); }
+  .status.todo  { background: rgba(255,255,255,0.2); color: #fff; }
+  .status.ref   { background: rgba(255,255,255,0.3); color: #fff; }
 
   .company-body { padding: 6px 18px 18px; }
 
@@ -241,34 +224,27 @@
   .row .v { font-size: 0.92rem; font-weight: 700; text-align: right; }
   .row .v.big {
     font-family: 'Zen Maru Gothic', serif;
-    font-size: 1.25rem;
-    font-weight: 900;
+    font-size: 1.25rem; font-weight: 900;
     color: var(--leaf-dark);
   }
   .row .v .yen { font-size: 0.78rem; }
   .tag {
     display: inline-block;
-    font-size: 0.68rem;
-    font-weight: 700;
-    padding: 2px 9px;
-    border-radius: 10px;
-    margin-left: 4px;
+    font-size: 0.68rem; font-weight: 700;
+    padding: 2px 9px; border-radius: 10px; margin-left: 4px;
   }
-  .tag.ok { background: var(--leaf-soft); color: var(--leaf-dark); }
-  .tag.maybe { background: var(--sun-soft); color: var(--sun); }
-  .tag.q { background: var(--gray-soft); color: var(--muted); }
+  .tag.ok    { background: var(--leaf-soft); color: var(--leaf-dark); }
+  .tag.maybe { background: var(--sun-soft);  color: var(--sun); }
+  .tag.q     { background: var(--gray-soft); color: var(--muted); }
+  .tag.warn  { background: var(--rose-soft); color: var(--rose); }
   .note {
-    font-size: 0.74rem;
-    color: var(--muted);
-    margin-top: 8px;
-    padding: 8px 10px;
-    background: var(--gray-soft);
-    border-radius: 10px;
+    font-size: 0.74rem; color: var(--muted);
+    margin-top: 8px; padding: 8px 10px;
+    background: var(--gray-soft); border-radius: 10px;
   }
 
   .legend {
-    font-size: 0.72rem;
-    color: var(--muted);
+    font-size: 0.72rem; color: var(--muted);
     background: var(--card);
     border: 1.5px solid var(--line);
     border-radius: 14px;
@@ -291,32 +267,24 @@
     align-items: flex-start;
   }
   .todos li .num {
-    background: var(--sun);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.72rem;
+    background: var(--sun); color: #fff;
+    font-weight: 700; font-size: 0.72rem;
     width: 22px; height: 22px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
+    flex-shrink: 0; margin-top: 1px;
   }
 
   footer {
-    text-align: center;
-    font-size: 0.7rem;
-    color: var(--muted);
-    margin-top: 30px;
-    line-height: 1.8;
+    text-align: center; font-size: 0.7rem;
+    color: var(--muted); margin-top: 30px; line-height: 1.8;
   }
   .editbox {
     background: var(--sun-soft);
     border: 1.5px dashed var(--sun);
     border-radius: 14px;
-    padding: 13px 16px;
-    font-size: 0.76rem;
-    color: #8a6320;
-    margin-top: 16px;
+    padding: 13px 16px; font-size: 0.76rem;
+    color: #8a6320; margin-top: 16px;
   }
   .editbox b { color: var(--sun); }
 </style>
@@ -356,8 +324,16 @@
       <div class="tl-dot done"></div>
       <div class="tl-body">
         <div class="tl-date">〜5月中旬</div>
-        <div class="tl-task">夢創・桧家の見積もり受領<span class="tl-badge done">完了</span></div>
-        <div class="tl-sub">2社の実数見積もりが手元にある</div>
+        <div class="tl-task">夢創・桧家の初回見積もり受領<span class="tl-badge done">完了</span></div>
+        <div class="tl-sub">2社の実数見積もりが手元にある（いずれも33〜35坪プランで再依頼中）</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot now"></div>
+      <div class="tl-body">
+        <div class="tl-date hot">6月上旬</div>
+        <div class="tl-task">夢創：建て替えに確定・見積り再依頼済み<span class="tl-badge now">進行中</span></div>
+        <div class="tl-sub">リフォームから建て替えに変更を伝達。33〜35坪で付帯工事・諸費用込みの総額を再取得中</div>
       </div>
     </div>
     <div class="tl-item">
@@ -365,15 +341,15 @@
       <div class="tl-body">
         <div class="tl-date hot">6月14日</div>
         <div class="tl-task">アイフルホーム 見積もり打ち合わせ<span class="tl-badge now">予定</span></div>
-        <div class="tl-sub">船橋直営店にて。GX・建て得対応、総額を確認する</div>
+        <div class="tl-sub">船橋直営店にて。断熱等級6・太陽光・EV充電・GX補助金・フラット35S適合を確認する</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-dot future"></div>
       <div class="tl-body">
-        <div class="tl-date">6月中</div>
-        <div class="tl-task">夢創に「別途込み総額」を再依頼<span class="tl-badge future">未</span></div>
-        <div class="tl-sub">解体・地盤改良・外構・諸費用を含めた総額を出してもらう</div>
+        <div class="tl-date">6月中〜下旬</div>
+        <div class="tl-task">桧家 新しい見積もり受領予定<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">33〜35坪プランで再見積もり。断熱等級・GX補助金・フラット35S適合も確認</div>
       </div>
     </div>
     <div class="tl-item">
@@ -381,7 +357,7 @@
       <div class="tl-body">
         <div class="tl-date">6〜7月</div>
         <div class="tl-task">3社を同じ土俵で比較<span class="tl-badge future">未</span></div>
-        <div class="tl-sub">総額・性能・補助金・保証を一覧にして絞り込む</div>
+        <div class="tl-sub">総額（付帯工事・諸費用込み）・性能・補助金・保証・フラット35Sを一覧にして絞り込む</div>
       </div>
     </div>
     <div class="tl-item">
@@ -389,7 +365,7 @@
       <div class="tl-body">
         <div class="tl-date">8月〜</div>
         <div class="tl-task">本人就職後にローン・着工の段取り<span class="tl-badge future">未</span></div>
-        <div class="tl-sub">勤務実績が整う頃にローン契約。贈与・登記の準備も</div>
+        <div class="tl-sub">勤務実績が整う頃にローン契約。贈与・名義・持分の設計も専門家に確認</div>
       </div>
     </div>
     <div class="tl-item">
@@ -397,29 +373,37 @@
       <div class="tl-body">
         <div class="tl-date">2026年内</div>
         <div class="tl-task">父からの贈与を実行<span class="tl-badge future">未</span></div>
-        <div class="tl-sub">非課税特例は年内贈与が条件。着工時期に合わせて</div>
+        <div class="tl-sub">非課税特例は年内贈与が条件。名義・持分の設計を先に確定させること</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot goal"></div>
+      <div class="tl-body">
+        <div class="tl-date goal">2026年度内（〜2027年3月）</div>
+        <div class="tl-task">完成・引き渡し・入居 🎉<span class="tl-badge goal">目標</span></div>
+        <div class="tl-sub">年度内完成を目指してスケジュールを逆算。着工時期の確認を早めに</div>
       </div>
     </div>
   </div>
 
   <!-- 各社 -->
-  <div class="sec-title">🏠 各社の状況</div>
+  <div class="sec-title">🏠 各社の状況（依頼床面積：33〜35坪）</div>
 
   <!-- 桧家 -->
   <div class="company">
     <div class="company-head hinokiya">
-      <div class="company-name">桧家住宅<small>V-13-5 プラン</small></div>
-      <div class="status done">見積もり受領</div>
+      <div class="company-name">桧家住宅<small>新プランで再見積もり依頼中</small></div>
+      <div class="status wait">新見積もり予定</div>
     </div>
     <div class="company-body">
-      <div class="row"><span class="k">総額（別途込み）</span><span class="v big">2,952<span class="yen">万円</span></span></div>
-      <div class="row"><span class="k">延床</span><span class="v">28坪</span></div>
-      <div class="row"><span class="k">坪単価（目安）</span><span class="v">約105万円/坪</span></div>
+      <div class="row"><span class="k">総額（前回・付帯工事込み）</span><span class="v big">2,952<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">前回の延床</span><span class="v">28坪（今回は33〜35坪で依頼）</span></div>
       <div class="row"><span class="k">断熱性能</span><span class="v">等級5 相当（標準）</span></div>
       <div class="row"><span class="k">特徴</span><span class="v">Z空調 込み</span></div>
+      <div class="row"><span class="k">外壁</span><span class="v"><span class="tag q">要確認</span></span></div>
       <div class="row"><span class="k">太陽光</span><span class="v"><span class="tag q">要確認</span></span></div>
-      <div class="row"><span class="k">GX補助金</span><span class="v"><span class="tag q">要確認</span></span></div>
-      <div class="note">📌 別途込みの総額が明確。ただし断熱は等級5標準なので、GX（等級6以上）を狙うなら追加費用がかかる。延床28坪と他社より小さい点にも注意</div>
+      <div class="row"><span class="k">GX補助金 / フラット35S</span><span class="v"><span class="tag q">要確認</span></span></div>
+      <div class="note">📌 2週間後に新しい見積もりを受領予定。33〜35坪に広げた場合の総額・断熱等級アップ（等級6対応費用）・GX補助金適合かどうかを確認する</div>
     </div>
   </div>
 
@@ -427,16 +411,16 @@
   <div class="company">
     <div class="company-head dream">
       <div class="company-name">夢創ハウジング<small>担当：中澤氏</small></div>
-      <div class="status done">見積もり受領</div>
+      <div class="status now">見積り再取得中</div>
     </div>
     <div class="company-body">
-      <div class="row"><span class="k">建物本体</span><span class="v">2,695<span class="yen">万円</span></span></div>
-      <div class="row"><span class="k">総額（別途込み・推定）</span><span class="v big">約3,600<span class="yen">万円</span></span></div>
-      <div class="row"><span class="k">延床</span><span class="v">31坪</span></div>
+      <div class="row"><span class="k">建物本体（前回）</span><span class="v">2,695<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">総額（付帯工事・諸費用等込み・推定）</span><span class="v big">約3,600<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">依頼床面積</span><span class="v">33〜35坪</span></div>
       <div class="row"><span class="k">断熱性能</span><span class="v">等級6 相当</span></div>
       <div class="row"><span class="k">太陽光</span><span class="v">LIXIL建て得 <span class="tag ok">対応可</span></span></div>
-      <div class="row"><span class="k">外壁</span><span class="v">サイディング</span></div>
-      <div class="note">⚠️ 見積書は「建物のみ」。解体・地盤改良・外構・諸費用など約900万円が別途で乗る見込み。総額で比べると桧家より高くなる可能性</div>
+      <div class="row"><span class="k">外壁</span><span class="v">サイディング <span class="tag maybe">10〜15年でメンテ必要</span></span></div>
+      <div class="note">🔄 <b>建て替えに確定</b>（リフォームから変更）。中澤氏に伝達済みで再見積もり中。<br>今回は「建物本体のみ」ではなく<b>付帯工事・諸費用（解体・地盤改良・外構・登記等）も込みの総額</b>で出してもらう</div>
     </div>
   </div>
 
@@ -448,17 +432,25 @@
     </div>
     <div class="company-body">
       <div class="row"><span class="k">見積もり打ち合わせ</span><span class="v" style="color:var(--sun)">6月14日</span></div>
-      <div class="row"><span class="k">状況</span><span class="v">返信あり・日程確定</span></div>
-      <div class="row"><span class="k">断熱性能</span><span class="v"><span class="tag q">当日確認</span></span></div>
-      <div class="row"><span class="k">太陽光</span><span class="v"><span class="tag q">当日確認</span></span></div>
-      <div class="note">✅ 6/14の打ち合わせで聞くこと：別途込みの総額／断熱性能（UA値・等級）／GX補助金の対応／LIXIL建て得対応／保証内容</div>
+      <div class="row"><span class="k">断熱性能</span><span class="v">等級6 <span class="tag ok">確定</span></span></div>
+      <div class="row"><span class="k">太陽光パネル</span><span class="v">搭載予定 <span class="tag ok">確定</span></span></div>
+      <div class="row"><span class="k">EV充電コンセント</span><span class="v">設置予定 <span class="tag ok">確定</span></span></div>
+      <div class="row"><span class="k">GX補助金 / フラット35S</span><span class="v"><span class="tag q">当日確認</span></span></div>
+      <div class="row"><span class="k">総額（付帯工事込み）</span><span class="v"><span class="tag q">当日確認</span></span></div>
+      <div class="note">✅ 6/14に確認すること：付帯工事・諸費用込みの総額／UA値・C値／GX補助金の対応／LIXIL建て得対応／フラット35S適合証明書を出せるか／保証内容</div>
     </div>
   </div>
 
-  <!-- 凡例 -->
+  <!-- 見方のヒント -->
   <div class="legend">
-    <b>📊 見方のヒント</b><br>
-    比べるべきは「建物本体価格」ではなく<b>「別途込みの総額」</b>です。夢創のように建物だけ安く見えても、解体・外構・諸費用を足すと逆転することがあります。
+    <b>📊 見方のヒント①：総額で比べる</b><br>
+    比べるべきは「建物本体価格」ではなく<b>「付帯工事・諸費用等込みの総額」</b>です。夢創のように建物だけ安く見えても、解体・外構・諸費用を足すと逆転することがあります。
+  </div>
+  <div class="legend" style="margin-top:10px;">
+    <b>🧱 見方のヒント②：外壁の種類</b><br>
+    <b>サイディング</b>（夢創・アイフル等）：初期費用が安め。10〜15年ごとに塗り替え・コーキング費用（目安 20〜40万円）が必要。<br>
+    <b>タイル</b>（クレバリー等）：初期費用は高め。ほぼメンテナンスフリーで長期コストが低い。<br>
+    <b>ガルバリウム鋼板</b>：シャープな見た目・軽量・メンテ周期長め。各社で対応差あり。
   </div>
 
   <!-- 住宅ローン -->
@@ -469,16 +461,43 @@
       <div class="status" style="background:#fff;color:#345a6e;">目標</div>
     </div>
     <div class="company-body">
-      <div class="row"><span class="k">どんな制度？</span><span class="v">当初一定期間 金利を引下げ</span></div>
+      <div class="row"><span class="k">どんな制度？</span><span class="v">住宅ローンの金利が一定期間 安くなる</span></div>
       <div class="row"><span class="k">引下げ幅（目安）</span><span class="v">年 ▲0.25%程度</span></div>
       <div class="row"><span class="k">引下げ期間</span><span class="v">プランにより 5年 / 10年</span></div>
-      <div class="note">📌 <b>使える条件＝「家の性能」</b>。下記のいずれかで一定基準を満たすと対象になります：<br>
-      ① 省エネルギー性（断熱等級・一次エネルギー消費量）<br>
-      ② 耐震性（耐震等級2以上 など）<br>
+      <div class="note">💡 <b>「引下げ幅」をかんたんに言うと？</b><br>
+      たとえば普通のフラット35の金利が<b>年1.8%</b>のとき、フラット35S で▲0.25%引き下げられると<b>年1.55%</b>で借りられます。<br>
+      3,000万円・35年ローンで10年間引き下げた場合、合計で<b>約40〜50万円</b>ほど返済総額が安くなるイメージです（金利水準によって変わります）。<br><br>
+      📌 <b>使える条件＝「家の性能」</b>。下記のいずれかで一定基準を満たすと対象になります：<br>
+      ① 省エネルギー性：<b>断熱等級5以上・UA値 0.60以下</b> など<br>
+      ② 耐震性：<b>耐震等級2以上</b> など<br>
       ③ バリアフリー性<br>
       ④ 耐久性・可変性（劣化対策等級3 など）<br><br>
-      🌱 性能が高いほど引下げ期間が長いプラン（金利Aプラン・ZEH 等）に届きます。各社の<b>断熱等級・耐震等級</b>がそのまま効いてくるので、見積もり比較とローンはセットで考えるのが得策。</div>
-      <div class="note" style="background:var(--sun-soft);color:#8a6320;">⚠️ 金利・条件は<b>年度ごとに変わります</b>。必ず最新の住宅金融支援機構（フラット35 公式）と、各ハウスメーカーで「<b>フラット35S の適合証明書を出せるか</b>」を確認してください。</div>
+      🌱 性能が高いほど引下げ期間が長いプランに届きます。各社の<b>断熱等級・耐震等級</b>がそのままローン優遇に直結するので、見積もり比較とローンはセットで考えるのが得策です。</div>
+      <div class="note" style="background:var(--sun-soft);color:#8a6320;">⚠️ 金利・条件は<b>年度ごとに変わります</b>。必ず最新の住宅金融支援機構（フラット35 公式サイト）で確認し、各ハウスメーカーに「<b>フラット35S の適合証明書を出せますか？</b>」と聞いてください。</div>
+    </div>
+  </div>
+
+  <!-- 贈与税・名義 -->
+  <div class="sec-title">🎁 父からの援助（贈与税と名義の注意点）</div>
+  <div class="company">
+    <div class="company-head" style="background:linear-gradient(135deg,#b06a6a,#8a4a4a);">
+      <div class="company-name">住宅取得等資金の贈与税非課税特例<small>2026年内に贈与実行予定</small></div>
+      <div class="status" style="background:#fff;color:#8a4a4a;">要確認</div>
+    </div>
+    <div class="company-body">
+      <div class="row"><span class="k">非課税限度額（省エネ住宅）</span><span class="v big">1,000<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">非課税限度額（一般住宅）</span><span class="v">500万円</span></div>
+      <div class="row"><span class="k">父からの援助予定額</span><span class="v">1,000万円 → <span class="tag ok">省エネ住宅なら全額非課税</span></span></div>
+      <div class="row"><span class="k">省エネ住宅の要件（目安）</span><span class="v">断熱等級4以上 など</span></div>
+      <div class="note">💡 <b>省エネ住宅の非課税枠 1,000万円は父の援助金額とぴったり一致</b>します。断熱等級4以上はほぼすべての検討中ハウスメーカーが満たせる見込みなので、特例を使える可能性が高い。<br><br>
+      ⚠️ <b>非課税限度額・制度内容は毎年変わる可能性があります</b>。2026年の最新情報を税務署（無料相談可）か税理士に確認してください。</div>
+      <div class="note" style="background:var(--rose-soft);color:#8a4a4a;">🚨 <b>妻単独ローンの場合の「名義（持分）」に要注意！</b><br><br>
+      父からの贈与を受けた人と、その資金を充てる不動産の名義人（持分）が一致していないと、<b>別途 贈与税がかかる可能性</b>があります。<br><br>
+      <b>基本の考え方：</b><br>
+      ① 父→妻に1,000万円を贈与する場合、その1,000万円は<b>妻の持分</b>に充てる必要がある<br>
+      ② ローンを妻単独で組む場合 → 「妻の自己資金（贈与分）＋妻のローン」で妻単独名義にするとシンプル。ローン控除も妻だけが受けられる<br>
+      ③ 夫も持分を持つ場合（例：妻7：夫3）→ 夫の持分部分は<b>夫への贈与と見なされる</b>可能性があり、別途 贈与税の問題が生じることがある<br><br>
+      👉 <b>持分の設計は必ず司法書士 or 税理士に確認</b>してから決めること。ここだけはプロに頼むのが安心です。</div>
     </div>
   </div>
 
@@ -494,7 +513,7 @@
       <div class="row"><span class="k">延床</span><span class="v">35坪</span></div>
       <div class="row"><span class="k">断熱性能</span><span class="v">等級7 標準 <span class="tag ok">最高水準</span></span></div>
       <div class="row"><span class="k">太陽光</span><span class="v">ゼロスタ<span class="tag ok">蓄電池込0円</span></span></div>
-      <div class="row"><span class="k">外壁</span><span class="v">タイル（メンテ費↓）</span></div>
+      <div class="row"><span class="k">外壁</span><span class="v">タイル <span class="tag ok">メンテほぼ不要</span></span></div>
       <div class="note">📎 今は見積もり依頼しないが、比較の参考として記録。広くて高性能なのに総額が抑えめ。将来の選択肢として頭の片隅に</div>
     </div>
   </div>
@@ -503,21 +522,32 @@
   <div class="sec-title">❓ ハウスメーカーに聞くことリスト</div>
   <ul class="todos">
     <li><span class="num">1</span><span><b>フラット35S に対応できるか</b>：適合証明書を出せるか／どのプラン（5年・10年）の基準を満たすか</span></li>
-    <li><span class="num">2</span><span><b>ルーター・通信環境の置き場所</b>（こだわりたいポイント）<br>・情報分電盤／ルーターの設置位置はどこになるか<br>・各部屋へのLAN先行配管（CD管）はできるか<br>・家全体にWi-Fiが届くか（メッシュ前提の配線・有線AP）<br>・光回線の引込位置・コンセントの確保</span></li>
-    <li><span class="num">3</span><span><b>断熱性能</b>：UA値・断熱等級はいくつか。フラット35S／補助金にそのまま使えるか</span></li>
-    <li><span class="num">4</span><span><b>耐震性能</b>：耐震等級はいくつか（フラット35Sの耐震基準を満たすか）</span></li>
-    <li><span class="num">5</span><span><b>太陽光・蓄電池</b>：建て得・ゼロ円ソーラー等の対応、補助金（GX等）の対応</span></li>
-    <li><span class="num">6</span><span><b>保証・アフター</b>：初期保証の年数、延長の条件、定期点検の頻度</span></li>
+    <li><span class="num">2</span><span><b>断熱・気密性能の数値を確認する</b><br>
+    ・<b>UA値</b>（断熱性＝熱の逃げにくさ）：数字が<b>小さい</b>ほど高性能<br>
+    　等級7 → UA≦0.26 ／ 等級6 → UA≦0.46 ／ 等級5 → UA≦0.60<br>
+    ・<b>C値</b>（気密性＝隙間の少なさ）：数字が<b>小さい</b>ほど高性能<br>
+    　目安：<b>1.0以下</b>なら高気密、<b>0.5以下</b>が理想。「全棟で気密測定をしているか」も確認！<br>
+    ・これらの数値はフラット35S・GX補助金の申請に直接使えるか</span></li>
+    <li><span class="num">3</span><span><b>ルーター・通信環境の置き場所</b>（こだわりたいポイント）<br>
+    ・情報分電盤／ルーターの設置位置はどこになるか<br>
+    ・各部屋へのLAN先行配管（CD管）はできるか<br>
+    ・家全体にWi-Fiが届くか（メッシュ前提の配線・有線AP設置）<br>
+    ・光回線の引込位置・コンセントの確保</span></li>
+    <li><span class="num">4</span><span><b>耐震性能</b>：耐震等級はいくつか（等級2以上でフラット35S の耐震条件を満たす）</span></li>
+    <li><span class="num">5</span><span><b>太陽光・EV充電・蓄電池</b>：建て得・ゼロ円ソーラー等の対応、EV充電コンセントの設置位置、GX補助金との組み合わせ</span></li>
+    <li><span class="num">6</span><span><b>外壁の種類・メンテナンス費用</b>：サイディング／タイル／ガルバリウムの違い、塗り替え周期と費用の目安</span></li>
+    <li><span class="num">7</span><span><b>保証・アフター</b>：初期保証の年数、延長の条件、定期点検の頻度</span></li>
   </ul>
 
   <!-- 次にやること -->
   <div class="sec-title">✅ 次にやること</div>
   <ul class="todos">
-    <li><span class="num">1</span><span>6/14 アイフルホームの打ち合わせ（総額・性能・補助金・建て得・保証を確認）</span></li>
-    <li><span class="num">2</span><span>夢創に「別途込みの総額」を出してもらう（解体・地盤改良・外構・諸費用）</span></li>
-    <li><span class="num">3</span><span>桧家に確認：GX（等級6以上）に上げる追加費用／太陽光／補助金対応</span></li>
-    <li><span class="num">4</span><span>3社が揃ったら、同じ土俵（総額・性能・補助金・保証）で比較表を作る</span></li>
-    <li><span class="num">5</span><span>父の1,000万円：まず税務署に無料相談 → 登記の持分設計だけ専門家に確認</span></li>
+    <li><span class="num">1</span><span>6/14 アイフルホームの打ち合わせ（付帯工事込み総額・UA値・C値・EV充電・GX補助金・フラット35S適合を確認）</span></li>
+    <li><span class="num">2</span><span>夢創：付帯工事・諸費用等込みの総額（再見積もり）を受領する</span></li>
+    <li><span class="num">3</span><span>桧家：新プラン（33〜35坪）の見積もり受領（2週間後）→ 断熱等級アップ費用・GX補助金・フラット35S適合も確認</span></li>
+    <li><span class="num">4</span><span>3社が揃ったら、同じ土俵（付帯工事込み総額・性能・補助金・保証・ローン適合）で比較表を作る</span></li>
+    <li><span class="num">5</span><span>父の1,000万円贈与：名義・持分の設計を司法書士 or 税理士に確認（妻単独ローンとの整合性）</span></li>
+    <li><span class="num">6</span><span>2026年度内完成から逆算して着工時期を確認・スケジュールを各社と詰める</span></li>
   </ul>
 
   <div class="editbox">
