@@ -288,6 +288,31 @@
     color: #8a6320; margin-top: 16px;
   }
   .editbox b { color: var(--sun); }
+
+  .archive-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-left: 5px solid var(--sky);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-top: 4px;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .archive-link:active { transform: scale(0.985); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .archive-ico { font-size: 1.7rem; flex-shrink: 0; }
+  .archive-txt { flex: 1; }
+  .archive-title {
+    font-family: 'Zen Maru Gothic', serif;
+    font-weight: 700; font-size: 0.95rem; color: var(--sky);
+  }
+  .archive-sub { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
+  .archive-arrow { font-size: 1.6rem; color: var(--sky); flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -461,7 +486,7 @@
   <!-- 一条工務店 -->
   <div class="company">
     <div class="company-head ichijo">
-      <div class="company-name">一条工務店<small>商品名：ハグミー（HUGme）／6/11 正式見積もり予定</small></div>
+      <div class="company-name">一条工務店<small>商品名：ハグミー（HUGme）／担当は知人（営業）・6/11 正式見積もり予定</small></div>
       <div class="status now">概算情報を入手</div>
     </div>
     <div class="company-body">
@@ -496,14 +521,15 @@
       この3つを組み合わせれば、予算内に収まる可能性が高い。6/11の正式見積もりで実際の数字をすり合わせる</div>
 
       <div class="note">
-      🗣️ <b>一条工務店で建てた知人（先輩）に聞いてみたいこと</b><br>
-      ① 実際に支払った総額（オプション込み）はいくらだったか<br>
-      ② 断熱・気密の体感（夏・冬の過ごしやすさ、光熱費の変化）<br>
-      ③ 太陽光・蓄電池の発電量と、月々の電気代の変化<br>
-      ④ 規格住宅で間取りはどこまで希望が通ったか（自由度の実感）<br>
-      ⑤ 紹介割引は使えたか・条件や割引額はどれくらいだったか<br>
-      ⑥ アフターサービス・点検・保証の実際の対応<br>
-      ⑦ 建てて住んでみて良かった点・後悔している点</div>
+      🗣️ <b>担当者（知人・一条工務店の営業）に聞いてみたいこと</b><br>
+      今回の担当者は知り合いなので、ざっくばらんに本音で相談できる関係。せっかくなので踏み込んで確認したい：<br>
+      ① オプション込みの「リアルな最終総額」はどのくらいになりがちか（他のお客さんの実例感）<br>
+      ② 値引き・紹介割引はどこまで可能か・条件や割引額の目安<br>
+      ③ ハグミー（規格住宅）で間取りはどこまで融通がきくか（変更できる範囲・できない範囲）<br>
+      ④ 太陽光・蓄電池をローン購入する場合の、発電量・電気代の実際の効果<br>
+      ⑤ GX補助金を確実に取るための条件・申請の流れ<br>
+      ⑥ 耐水害住宅オプションの実際の効果と、この立地での"おすすめ度"<br>
+      ⑦ 引き渡し後のアフター・点検・保証の実際の対応（営業目線での本音）</div>
     </div>
   </div>
 
@@ -515,7 +541,7 @@
   <div class="legend" style="margin-top:10px;">
     <b>🧱 見方のヒント②：外壁の種類</b><br>
     <b>サイディング</b>（夢創・アイフル等）：初期費用が安め。10〜15年ごとに塗り替え・コーキング費用（目安 20〜40万円）が必要。<br>
-    <b>タイル</b>（クレバリー等）：初期費用は高め。ほぼメンテナンスフリーで長期コストが低い。<br>
+    <b>タイル</b>：初期費用は高め。ほぼメンテナンスフリーで長期コストが低い。<br>
     <b>ガルバリウム鋼板</b>：シャープな見た目・軽量・メンテ周期長め。各社で対応差あり。
   </div>
 
@@ -549,14 +575,6 @@
 
       <div class="note">📌 <b>お父さまに確認しておきたいこと</b><br>
       この土地（久喜市新井）で、<b>過去に浸水・冠水した経験があるか</b>を聞いてみてください。長く住んでいる方の実体験は、ハザードマップの「想定」だけでは分からない土地の実情を知る貴重な手がかりになります。</div>
-
-      <div class="note" style="background:var(--leaf-soft);color:var(--leaf-dark);">
-      👨‍👩‍👧‍👦 <b>家族にマイルドに伝えるなら</b><br><br>
-      「5〜10m浸水する危険な土地」と数字を前面に出すと身構えてしまうので、<b>「備えとして・安心のために」</b>というトーンで、まずは"行動"から誘うのがおすすめです。たとえば…<br><br>
-      ・「真剣に家を考えてるからこそ、念のため近くの避難場所と道順を家族で確認しておこうよ」<br>
-      ・「最近はどこの地域でも大雨のニュースをよく見るし、うちも一度ハザードマップを家族で見ておこうか」<br>
-      ・「家を建てるタイミングだからこそ聞ける、安心のための工夫（基礎を少し高くする・コンセントや設備の位置を工夫するなど）をハウスメーカーに相談してみようと思って」<br><br>
-      👉 「危ないから心配」ではなく「備えておけば安心」という前向きな入り口から始めると、家族にも自然に受け止めてもらいやすくなります。</div>
     </div>
   </div>
 
@@ -608,23 +626,6 @@
     </div>
   </div>
 
-  <!-- 参考企業 -->
-  <div class="sec-title">📎 参考企業（今は見積もり依頼しない）</div>
-  <div class="company ref">
-    <div class="company-head clever">
-      <div class="company-name">クレバリーホーム<small>参考：Clevers</small></div>
-      <div class="status ref">参考</div>
-    </div>
-    <div class="company-body">
-      <div class="row"><span class="k">総額（参考・概算）</span><span class="v">約3,100<span class="yen">万円</span></span></div>
-      <div class="row"><span class="k">延床</span><span class="v">35坪</span></div>
-      <div class="row"><span class="k">断熱性能</span><span class="v">等級7 標準 <span class="tag ok">最高水準</span></span></div>
-      <div class="row"><span class="k">太陽光</span><span class="v">ゼロスタ<span class="tag ok">蓄電池込0円</span></span></div>
-      <div class="row"><span class="k">外壁</span><span class="v">タイル <span class="tag ok">メンテほぼ不要</span></span></div>
-      <div class="note">📎 今は見積もり依頼しないが、比較の参考として記録。広くて高性能なのに総額が抑えめ。将来の選択肢として頭の片隅に</div>
-    </div>
-  </div>
-
   <!-- 聞くことリスト -->
   <div class="sec-title">❓ ハウスメーカーに聞くことリスト</div>
   <ul class="todos">
@@ -663,6 +664,17 @@
     <li><span class="num">7</span><span>6/11 一条工務店の正式見積もりを確認する（概算約3,143〜3,300万円からどう変わるか、GX補助金・紹介割引・坪数調整の余地もあわせて確認）</span></li>
     <li><span class="num">8</span><span>お父さまに、この土地（久喜市新井）で過去に浸水・冠水した経験があるかをヒアリングする</span></li>
   </ul>
+
+  <!-- アーカイブ集 -->
+  <div class="sec-title">📚 アーカイブ集</div>
+  <a class="archive-link" href="archive.html">
+    <div class="archive-ico">🗂</div>
+    <div class="archive-txt">
+      <div class="archive-title">過去のやりとり・更新履歴を見る</div>
+      <div class="archive-sub">各社との打ち合わせ記録・削除した情報・変更の履歴をここに積み上げていきます</div>
+    </div>
+    <div class="archive-arrow">›</div>
+  </a>
 
   <div class="editbox">
     <b>✏️ 更新のしかた</b><br>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マイホーム計画 アーカイブ集</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+
+  :root {
+    --ink: #2b2b2b;
+    --paper: #faf6ef;
+    --card: #ffffff;
+    --line: #e6ddd0;
+    --leaf: #5a7d4f;
+    --leaf-dark: #3f5c38;
+    --leaf-soft: #e8efe2;
+    --sun: #d99a2b;
+    --sun-soft: #f7ecd4;
+    --sky: #4a7a93;
+    --sky-soft: #e0ecf1;
+    --rose: #b06a6a;
+    --rose-soft: #f1e2e2;
+    --gray-soft: #f0ece4;
+    --muted: #8a8278;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    padding: 20px 14px 60px;
+    background-image: radial-gradient(var(--line) 0.5px, transparent 0.5px);
+    background-size: 18px 18px;
+  }
+
+  .wrap { max-width: 540px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 22px 18px 24px;
+    background: linear-gradient(135deg, var(--sky) 0%, #345a6e 100%);
+    border-radius: 22px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(52,90,110,0.25);
+  }
+  header::before {
+    content: "🗂";
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.12;
+    right: -20px;
+    top: -25px;
+    transform: rotate(12deg);
+  }
+  header h1 {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  header .sub {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    margin-top: 4px;
+    position: relative;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 16px 4px 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--sky);
+    text-decoration: none;
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 20px;
+    padding: 7px 16px;
+  }
+  .back-link:active { transform: scale(0.97); }
+
+  .sec-title {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 30px 6px 14px;
+    padding-left: 12px;
+    border-left: 5px solid var(--sky);
+    color: #345a6e;
+  }
+
+  .intro {
+    background: var(--sky-soft);
+    border: 1.5px solid #cfe0e8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 0.8rem;
+    color: #2a5b68;
+    margin-top: 16px;
+  }
+
+  /* 更新履歴（タイムライン） */
+  .timeline {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 18px;
+    padding: 20px 18px 12px;
+  }
+  .tl-item {
+    display: flex;
+    gap: 14px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .tl-item:last-child { padding-bottom: 4px; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 22px;
+    width: 2px; height: calc(100% - 18px);
+    background: var(--line);
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 3px solid #fff;
+    background: var(--sky);
+    box-shadow: 0 0 0 2px var(--sky);
+    z-index: 1;
+  }
+  .tl-body { flex: 1; }
+  .tl-date { font-size: 0.74rem; font-weight: 700; color: var(--sky); }
+  .tl-task { font-size: 0.9rem; font-weight: 700; margin-top: 1px; }
+  .tl-list { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+  .tl-list li { margin-left: 18px; margin-top: 2px; }
+
+  /* 会社別の履歴 */
+  .log {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    padding: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .log-head {
+    font-family: 'Zen Maru Gothic', serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: #fff;
+    padding: 12px 16px;
+  }
+  .log-head.ichijo { background: linear-gradient(135deg,#3f7d8c,#2a5b68); }
+  .log-head.dream  { background: linear-gradient(135deg,#6b8e5f,#4e7042); }
+  .log-head.hinokiya { background: linear-gradient(135deg,#c98a3d,#a86a26); }
+  .log-head.aiful  { background: linear-gradient(135deg,#7d8a92,#5f6b73); }
+  .log-body { padding: 8px 16px 14px; }
+  .log-entry {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .log-entry:last-child { border-bottom: none; }
+  .log-date {
+    font-size: 0.72rem; font-weight: 700; color: var(--muted);
+  }
+  .log-text { font-size: 0.84rem; margin-top: 3px; }
+  .log-empty {
+    font-size: 0.78rem; color: var(--muted);
+    padding: 14px 0; text-align: center;
+  }
+
+  /* 削除アーカイブ */
+  .removed {
+    background: var(--card);
+    border: 1.5px dashed var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    opacity: 0.95;
+  }
+  .removed-tag {
+    display: inline-block;
+    font-size: 0.66rem; font-weight: 700;
+    background: var(--gray-soft); color: var(--muted);
+    padding: 3px 10px; border-radius: 10px;
+    margin-bottom: 8px;
+  }
+  .removed-title {
+    font-family: 'Zen Maru Gothic', serif;
+    font-weight: 700; font-size: 0.92rem; color: var(--ink);
+  }
+  .removed-why { font-size: 0.76rem; color: var(--muted); margin: 4px 0 10px; }
+  .removed-box {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+  }
+  .removed-box .row {
+    display: flex; justify-content: space-between;
+    gap: 10px; padding: 5px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .removed-box .row:last-child { border-bottom: none; }
+  .removed-box .k { color: var(--muted); font-size: 0.78rem; }
+  .removed-box .v { font-weight: 700; text-align: right; }
+
+  footer {
+    text-align: center; font-size: 0.7rem;
+    color: var(--muted); margin-top: 30px; line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>アーカイブ集</h1>
+    <div class="sub">マイホーム計画の更新履歴・過去のやりとり・削除した情報</div>
+  </header>
+
+  <a class="back-link" href="index.html">‹ メインのダッシュボードに戻る</a>
+
+  <div class="intro">
+    📌 ここは<b>「積み上げ用」のページ</b>です。各社との打ち合わせで話したこと、過去の見積もり、メインから削除した情報などを、消さずにここに残していきます。「あのとき何を話したっけ？」を後から振り返れるようにするのが目的です。
+  </div>
+
+  <!-- 更新履歴 -->
+  <div class="sec-title">🕒 ダッシュボード更新履歴</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-date">2026年6月8日（その3）</div>
+        <div class="tl-task">担当者情報の修正・整理・アーカイブ集の新設</div>
+        <ul class="tl-list">
+          <li>一条工務店の担当者は「建てた知人」ではなく「営業として働く知人（今回の担当者）」と判明 → 質問内容を担当者向けに修正</li>
+          <li>水害セクションの「家族にマイルドに伝えるなら」欄を削除（資料を家族も読むため）</li>
+          <li>参考企業「クレバリーホーム」をメインから削除（このページに保管）</li>
+          <li>このアーカイブ集ページを新設</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-date">2026年6月8日（その2）</div>
+        <div class="tl-task">水害・浸水対策まわりを強化</div>
+        <ul class="tl-list">
+          <li>聞くことリストに「⑧ 水害・浸水対策」を追加（基礎かさ上げ・屋外設備の高所設置・耐水害オプション・水災補償）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-date">2026年6月8日（その1）</div>
+        <div class="tl-task">一条工務店（ハグミー）を追加・水害リスクを新設</div>
+        <ul class="tl-list">
+          <li>一条工務店のカードを追加（32坪・概算約3,143〜3,300万円・断熱等級6以上）</li>
+          <li>予算シミュレーション（差額約150万円と埋め方3案）を追加</li>
+          <li>「🌊 立地・水害リスク（ハザードマップ）」セクションを新設（想定浸水深5〜10m）</li>
+          <li>聞くことリストに光触媒コーティング（マイクロガード）の確認・CD管の先行配管の説明を追加</li>
+          <li>検討中の会社を3社→4社に更新</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-date">2026年6月4日</div>
+        <div class="tl-task">基礎情報を整備</div>
+        <ul class="tl-list">
+          <li>住宅ローン（フラット35S）セクションを追加・引下げ幅の解説</li>
+          <li>父からの援助（贈与税の非課税枠1,000万円・名義/持分の注意点）を追加</li>
+          <li>UA値・C値の基準値、外壁の種類の比較を追記</li>
+          <li>アイフルホームの確定情報（断熱等級6・太陽光・EV充電）を反映</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-date">〜2026年6月初旬</div>
+        <div class="tl-task">ダッシュボード公開</div>
+        <ul class="tl-list">
+          <li>夢創・桧家の初回見積もりを反映してダッシュボードを公開</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 会社別やりとり履歴 -->
+  <div class="sec-title">🗣 各社とのやりとり履歴</div>
+  <div class="intro" style="margin-top:0;">
+    打ち合わせや電話で「このハウスメーカーとこんな話をした」という記録を、ここに日付つきで積み上げていきます。新しいやりとりがあったらClaudeに伝えてください。
+  </div>
+
+  <div class="log">
+    <div class="log-head ichijo">一条工務店（ハグミー）</div>
+    <div class="log-body">
+      <div class="log-entry">
+        <div class="log-date">2026年6月8日</div>
+        <div class="log-text">新たに見積もり依頼。担当は知人（一条工務店の営業）。概算で建築総費用 約3,143万円、太陽光・蓄電池込みで約3,300万円。32坪・断熱等級6以上・GX志向型住宅基準クリアの見込み。正式見積もりは6/11予定。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log">
+    <div class="log-head dream">夢創ハウジング</div>
+    <div class="log-body">
+      <div class="log-entry">
+        <div class="log-date">2026年6月上旬</div>
+        <div class="log-text">リフォームから「建て替え」に変更する旨を担当の中澤氏に伝達。33〜35坪・付帯工事/諸費用込みの総額で再見積もりを依頼中。外壁はニチハ モエンエクセラード16（光触媒グレードの有無は要確認）。</div>
+      </div>
+      <div class="log-entry">
+        <div class="log-date">〜2026年5月</div>
+        <div class="log-text">初回見積もり受領。建物本体 約2,695万円。LIXIL建て得（太陽光）対応可。断熱等級6相当。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log">
+    <div class="log-head hinokiya">桧家住宅</div>
+    <div class="log-body">
+      <div class="log-entry">
+        <div class="log-date">〜2026年5月</div>
+        <div class="log-text">初回見積もり受領。28坪で総額 約2,952万円（Z空調込み）。今回は33〜35坪で再見積もり依頼中（2週間後に受領予定）。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log">
+    <div class="log-head aiful">アイフルホーム（船橋直営店）</div>
+    <div class="log-body">
+      <div class="log-entry">
+        <div class="log-date">2026年6月</div>
+        <div class="log-text">6/14に見積もり打ち合わせ予定。断熱等級6・太陽光パネル搭載・EV充電コンセント設置が確定。当日に総額・UA値/C値・GX補助金・フラット35S適合を確認予定。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 削除・保管した情報 -->
+  <div class="sec-title">🗃 メインから削除して保管した情報</div>
+
+  <div class="removed">
+    <span class="removed-tag">削除日：2026年6月8日</span>
+    <div class="removed-title">📎 参考企業：クレバリーホーム（Clevers）</div>
+    <div class="removed-why">理由：今は見積もり依頼しないため、メインから削除。将来の選択肢として念のため記録を残します。</div>
+    <div class="removed-box">
+      <div class="row"><span class="k">総額（参考・概算）</span><span class="v">約3,100万円</span></div>
+      <div class="row"><span class="k">延床</span><span class="v">35坪</span></div>
+      <div class="row"><span class="k">断熱性能</span><span class="v">等級7 標準（最高水準）</span></div>
+      <div class="row"><span class="k">太陽光</span><span class="v">ゼロスタ（蓄電池込0円）</span></div>
+      <div class="row"><span class="k">外壁</span><span class="v">タイル（メンテほぼ不要）</span></div>
+      <div class="row"><span class="k">メモ</span><span class="v">広くて高性能なのに総額が抑えめ</span></div>
+    </div>
+  </div>
+
+  <div class="removed">
+    <span class="removed-tag">削除日：2026年6月8日</span>
+    <div class="removed-title">👨‍👩‍👧‍👦 「家族にマイルドに伝えるなら」メモ</div>
+    <div class="removed-why">理由：このHTML資料を家族も読むため、メインからは削除。考え方のメモとしてここに残します。</div>
+    <div class="removed-box">
+      水害リスクを家族と共有するときは、数字（5〜10m）を前面に出すより「備えとして・安心のために」というトーンで、まず"行動"から誘うのがやりやすい。たとえば「念のため避難場所と道順を家族で確認しておこう」「最近大雨のニュースをよく見るし、一度ハザードマップを家族で見ておこうか」「家を建てるタイミングだからこそ、安心のための工夫をハウスメーカーに相談してみよう」など。「危ないから心配」ではなく「備えておけば安心」という前向きな入り口から始めるのがコツ。
+    </div>
+  </div>
+
+  <footer>
+    マイホーム計画 アーカイブ集<br>
+    <a href="index.html" style="color:var(--sky);">‹ メインのダッシュボードに戻る</a>
+  </footer>
+
+</div>
+</body>
+</html>
