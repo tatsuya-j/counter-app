@@ -289,6 +289,27 @@
   }
   .editbox b { color: var(--sun); }
 
+  .discuss {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-left: 5px solid var(--rose);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .discuss-title {
+    font-family: 'Zen Maru Gothic', serif;
+    font-weight: 700; font-size: 0.92rem;
+    color: var(--rose);
+    margin-bottom: 6px;
+  }
+  .discuss-body { font-size: 0.84rem; }
+  .discuss-note {
+    font-size: 0.74rem; color: var(--muted);
+    margin-top: 7px; padding: 7px 10px;
+    background: var(--rose-soft); border-radius: 8px;
+  }
+
   .archive-link {
     display: flex;
     align-items: center;
@@ -658,6 +679,12 @@
     ・<b>C値</b>（気密性＝隙間の少なさ）：数字が<b>小さい</b>ほど高性能<br>
     　目安：<b>1.0以下</b>なら高気密、<b>0.5以下</b>が理想。「全棟で気密測定をしているか」も確認！<br>
     ・これらの数値はフラット35S・GX補助金の申請に直接使えるか</span></li>
+    <li><span class="num">2.5</span><span><b>換気システムのフィルター性能</b>（花粉・PM2.5・湿度）<br>
+    ・花粉やPM2.5はフィルターで除去できるか（フィルターの規格を確認：<b>HEPA相当・PM2.5対応</b>かどうか）<br>
+    ・<b>全熱交換型換気</b>（温度だけでなく湿気も逃がさず換気する方式）に対応しているか。これがあると「冬に乾燥しにくい・夏も湿度をある程度キープできる」効果が期待できる<br>
+    ・換気の方式（<b>第1種換気＝給排気ともに機械で制御</b>が最も安定。一条工務店の熱交換換気はこれ）か確認<br>
+    ・フィルターのメンテナンス頻度・交換費用はどれくらいか<br>
+    ・<span class="tag q" style="font-size:0.72rem;">花粉症の家族がいる場合は特に重要</span> 外からの空気をそのまま入れない設計かどうかも確認を</span></li>
     <li><span class="num">3</span><span><b>ルーター・通信環境の置き場所</b><br>
     ・「2階建ての1階中央にある棚の一番上にルーターを置く」案で、家全体に電波が届きそうか確認する（新築は壁で電波が遮られやすく、2階の角部屋などは弱くなることがある）<br>
     ・もし弱い場所があれば<b>メッシュWiFi</b>（家の数か所に小型の中継機を置いて、家中をひとつのWiFiでカバーする仕組み）も検討候補に<br>
@@ -696,6 +723,29 @@
     <li><span class="num">7</span><span>6/11 一条工務店の正式見積もりを確認する（概算約3,143〜3,300万円からどう変わるか、GX補助金・紹介割引・坪数調整の余地もあわせて確認）</span></li>
     <li><span class="num">8</span><span>お父さまに、この土地（久喜市新井）で過去に浸水・冠水した経験があるかをヒアリングする</span></li>
   </ul>
+
+  <!-- 家族で話し合うこと -->
+  <div class="sec-title">👨‍👩‍👧 家族で話し合うこと</div>
+
+  <div class="discuss">
+    <div class="discuss-title">🛕 仏壇・神棚をどこに置くか</div>
+    <div class="discuss-body">
+      ・仏壇と神棚、それぞれの置き場所を間取りの設計前に決めておく必要がある<br>
+      ・<b>仏壇</b>：直射日光が当たらず、温度・湿度の変化が少ない場所が基本（西日の当たる窓際は避ける）。1階に専用スペース（仏間・ニッチなど）を設けるか、リビングの一角に収まる造り付け収納にするかを検討<br>
+      ・<b>神棚</b>：なるべく南向きか東向きで、目線より高い位置（天井近く）に設置するのが一般的。キッチンや水回りの真上は避けるのが慣習<br>
+      ・ハウスメーカーに「仏壇・神棚の設置場所を想定した寸法・位置でプランを作ってほしい」と事前に伝えると、後から「入らない」「位置がおかしい」を防げる
+    </div>
+  </div>
+
+  <div class="discuss">
+    <div class="discuss-title">🛏 お父さまの部屋：6畳にするか、8畳にするか</div>
+    <div class="discuss-body">
+      ・<b>8畳にする場合</b>→ LDKを窮屈にしないためには、<b>延床 35坪前後</b>が必要になりそう（現在の依頼は33〜35坪なので上限側を意識する）<br>
+      ・<b>6畳にする場合</b>→ 延床を抑えられる分、費用を下げる余地ができる。ただし「就寝＋介護・医療器具のスペース」を将来的に確保できるかを確認<br>
+      ・どちらにするかが決まると、全体の延床と費用の方向性がより絞れるため、<b>早めに家族で結論を出す</b>とハウスメーカーへの依頼がスムーズになる
+    </div>
+    <div class="discuss-note">💡 <b>ざっくりの費用差：</b>延床33坪→35坪の2坪増は、坪60〜70万円計算で約<b>120〜140万円の増額</b>になることが多い（各社の坪単価次第で変わるため、見積もりで確認を）</div>
+  </div>
 
   <!-- アーカイブ集 -->
   <div class="sec-title">📚 アーカイブ集</div>
