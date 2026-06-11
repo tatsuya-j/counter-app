@@ -383,6 +383,38 @@
   }
   .archive-sub { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
   .archive-arrow { font-size: 1.6rem; color: var(--sky); flex-shrink: 0; }
+
+  details.discuss {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-left: 5px solid var(--rose);
+    border-radius: 14px;
+    padding: 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  details.discuss > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Zen Maru Gothic', serif;
+    font-weight: 700; font-size: 0.92rem;
+    color: var(--rose);
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details.discuss > summary::-webkit-details-marker { display: none; }
+  details.discuss > summary::after { content: "▼"; font-size: 0.6rem; opacity: 0.45; flex-shrink: 0; }
+  details.discuss[open] > summary::after { content: "▲"; }
+  details.discuss[open] > summary { border-bottom: 1px solid var(--line); }
+  details.discuss .discuss-body { font-size: 0.84rem; padding: 12px 16px 14px; }
+  details.discuss .discuss-note {
+    font-size: 0.74rem; color: var(--muted);
+    margin: 0 16px 14px; padding: 7px 10px;
+    background: var(--rose-soft); border-radius: 8px;
+  }
 </style>
 </head>
 <body>
@@ -441,11 +473,11 @@
       </div>
     </div>
     <div class="tl-item">
-      <div class="tl-dot now"></div>
+      <div class="tl-dot done"></div>
       <div class="tl-body">
-        <div class="tl-date hot">6月11日（本日）</div>
-        <div class="tl-task">一条工務店 正式な見積もりを受領<span class="tl-badge now">今日</span></div>
-        <div class="tl-sub">概算（アイスマートプラス）との差額・ハグミーへの切り替え可否・GX補助金・紹介割引の余地を確認</div>
+        <div class="tl-date">6月11日</div>
+        <div class="tl-task">一条工務店 初回打ち合わせ・住宅見学 完了<span class="tl-badge done">完了</span></div>
+        <div class="tl-sub">正式見積もり受領・ハグミー/アイスマートプラスの違いを確認。今後のスケジュールも確認済み</div>
       </div>
     </div>
     <div class="tl-item">
@@ -454,6 +486,30 @@
         <div class="tl-date">6月14日</div>
         <div class="tl-task">アイフルホーム 見積もり打ち合わせ<span class="tl-badge future">未</span></div>
         <div class="tl-sub">船橋直営店にて。断熱等級6・太陽光・EV充電・GX補助金・フラット35S適合を確認する</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">6月20日（金）11:00〜</div>
+        <div class="tl-task">一条工務店 ローンの打ち合わせ<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">ニッケコルトン近くの住宅展示場にて</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">6月26日（木）10:30〜</div>
+        <div class="tl-task">一条工務店 幕張ラボ見学<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">担当の今泉さんと幕張の一条ラボへ</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">6月27日（金）12:00〜</div>
+        <div class="tl-task">エムズタウン幸手でランチ → お父さんと現地挨拶<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">ランチ後、15:00〜 新井にてお父さんと挨拶・現地確認</div>
       </div>
     </div>
     <div class="tl-item">
@@ -556,8 +612,8 @@
   <!-- 一条工務店 -->
   <div class="company">
     <div class="company-head ichijo">
-      <div class="company-name">一条工務店<small>担当は知人（営業）・正式見積もり受領中（6/11）</small></div>
-      <div class="status now">見積もり受領中</div>
+      <div class="company-name">一条工務店<small>担当は知人（営業）・初回打ち合わせ・見学済み</small></div>
+      <div class="status now">打ち合わせ進行中</div>
     </div>
     <div class="company-body">
       <div class="row"><span class="k">提示された商品</span><span class="v">アイスマートプラス（自由設計） <span class="tag maybe">坪75万</span></span></div>
@@ -635,6 +691,13 @@
         ⑤ GX補助金を確実に取るための条件・申請の流れ<br>
         ⑥ 耐水害住宅オプションがハグミーでも選べるか・この立地でのおすすめ度<br>
         ⑦ 引き渡し後のアフター・点検・保証の実際の対応（本音）</span>
+      </details>
+
+      <details class="note" style="background:var(--sky-soft);color:#2a5b68;">
+        <summary>🗓 今後の一条工務店との予定</summary>
+        <span class="dc">・<b>6/20（金）11:00〜</b>　ローンの打ち合わせ @ ニッケコルトン近くの住宅展示場<br>
+        ・<b>6/26（木）10:30〜</b>　幕張ラボ見学（今泉さんと）<br>
+        ・<b>6/27（金）12:00〜</b>　エムズタウン幸手でランチ → 15:00〜 新井でお父さんと挨拶</span>
       </details>
     </div>
   </div>
@@ -816,38 +879,38 @@
   <!-- 次にやること -->
   <div class="sec-title">✅ 次にやること</div>
   <ul class="todos">
-    <li><span class="num">1</span><span>6/11 一条工務店の正式見積もりを確認する（アイスマートプラスの正式数字・ハグミーへの切り替え可否・GX補助金・紹介割引の余地を確認）</span></li>
+    <li><span class="num">1</span><span>✅ 6/11 一条工務店 初回打ち合わせ・見学 完了 → 次：6/20 ローン打ち合わせ・6/26 幕張ラボ見学・6/27 父と現地挨拶</span></li>
     <li><span class="num">2</span><span>6/14 アイフルホームの打ち合わせ（付帯工事込み総額・UA値・C値・EV充電・GX補助金・フラット35S適合を確認）</span></li>
     <li><span class="num">3</span><span>夢創：付帯工事・諸費用等込みの総額（再見積もり）を受領する</span></li>
     <li><span class="num">4</span><span>桧家：新プラン（33〜35坪）の見積もり受領（2週間後）→ 断熱等級アップ費用・GX補助金・フラット35S適合も確認</span></li>
     <li><span class="num">5</span><span>4社が揃ったら、同じ土俵（付帯工事込み総額・性能・補助金・保証・ローン適合）で比較表を作る</span></li>
     <li><span class="num">6</span><span>父の1,000万円贈与：名義・持分の設計を司法書士 or 税理士に確認（妻単独ローンとの整合性）</span></li>
     <li><span class="num">7</span><span>2026年度内完成から逆算して着工時期を確認・スケジュールを各社と詰める</span></li>
-    <li><span class="num">8</span><span>お父さまに、この土地（久喜市新井）で過去に浸水・冠水した経験があるかをヒアリングする</span></li>
+    <li><span class="num">8</span><span>✅ お父さまへの浸水歴ヒアリング完了（カスリーン台風1947年の床下浸水のみ・以降被害なし）→ 1m耐水害オプション採用予定に決定</span></li>
   </ul>
 
   <!-- 家族で話し合うこと -->
   <div class="sec-title">👨‍👩‍👧 家族で話し合うこと</div>
 
-  <div class="discuss">
-    <div class="discuss-title">🛕 仏壇・神棚をどこに置くか</div>
+  <details class="discuss">
+    <summary>🛕 仏壇・神棚をどこに置くか</summary>
     <div class="discuss-body">
       ・仏壇と神棚、それぞれの置き場所を間取りの設計前に決めておく必要がある<br>
       ・<b>仏壇</b>：直射日光が当たらず、温度・湿度の変化が少ない場所が基本（西日の当たる窓際は避ける）。1階に専用スペース（仏間・ニッチなど）を設けるか、リビングの一角に収まる造り付け収納にするかを検討<br>
       ・<b>神棚</b>：なるべく南向きか東向きで、目線より高い位置（天井近く）に設置するのが一般的。キッチンや水回りの真上は避けるのが慣習<br>
       ・ハウスメーカーに「仏壇・神棚の設置場所を想定した寸法・位置でプランを作ってほしい」と事前に伝えると、後から「入らない」「位置がおかしい」を防げる
     </div>
-  </div>
+  </details>
 
-  <div class="discuss">
-    <div class="discuss-title">🛏 お父さまの部屋：6畳にするか、8畳にするか</div>
+  <details class="discuss">
+    <summary>🛏 お父さまの部屋：6畳にするか、8畳にするか</summary>
     <div class="discuss-body">
       ・<b>8畳にする場合</b>→ LDKを窮屈にしないためには、<b>延床 35坪前後</b>が必要になりそう（現在の依頼は33〜35坪なので上限側を意識する）<br>
       ・<b>6畳にする場合</b>→ 延床を抑えられる分、費用を下げる余地ができる。ただし「就寝＋介護・医療器具のスペース」を将来的に確保できるかを確認<br>
       ・どちらにするかが決まると、全体の延床と費用の方向性がより絞れるため、<b>早めに家族で結論を出す</b>とハウスメーカーへの依頼がスムーズになる
     </div>
     <div class="discuss-note">💡 <b>ざっくりの費用差：</b>延床33坪→35坪の2坪増は、坪60〜70万円計算で約<b>120〜140万円の増額</b>になることが多い（各社の坪単価次第で変わるため、見積もりで確認を）</div>
-  </div>
+  </details>
 
   <!-- アーカイブ集 -->
   <div class="sec-title">📚 アーカイブ集</div>
