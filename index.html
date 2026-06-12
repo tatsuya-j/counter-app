@@ -415,6 +415,25 @@
     margin: 0 16px 14px; padding: 7px 10px;
     background: var(--rose-soft); border-radius: 8px;
   }
+
+  details.sec-fold > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 6px 14px;
+    padding-left: 12px;
+    border-left: 5px solid var(--leaf);
+    color: var(--leaf-dark);
+  }
+  details.sec-fold > summary::-webkit-details-marker { display: none; }
+  details.sec-fold > summary::after { content: " ▼"; font-size: 0.6rem; opacity: 0.45; flex-shrink: 0; }
+  details.sec-fold[open] > summary::after { content: " ▲"; }
 </style>
 </head>
 <body>
@@ -716,7 +735,8 @@
   </div>
 
   <!-- ランニング・メンテ費用 -->
-  <div class="sec-title">💴 ランニング・メンテ費用の目安</div>
+  <details class="sec-fold">
+  <summary>💴 ランニング・メンテ費用の目安</summary>
   <div class="company">
     <div class="company-head" style="background:linear-gradient(135deg,#7d8a92,#5f6b73);">
       <div class="company-name">住んでからかかるお金<small>初期費用とは別に毎月・数年ごとにかかる費用の目安</small></div>
@@ -785,9 +805,34 @@
         → <b>300〜600万円以上</b> になることも。新築時の予算計画に「修繕積立」の感覚も持っておくと安心です。</span>
       </details>
 
+      <details class="note" style="background:var(--rose-soft);color:#8a4a4a;">
+        <summary>📊 5年ごとの累計費用シミュレーション（月いくら積み立てればいい？）</summary>
+        <span class="dc">太陽光・蓄電池あり・33坪前後の一般的な新築を想定した目安です。<br><br>
+        <b>【一条工務店（タイル外壁・全館床暖房）の場合】</b><br>
+        ・5年後　　 約15〜25万円（シロアリ防除）<br>
+        ・10年後　　約30〜50万円（シロアリ 2回目）<br>
+        ・15年後　　約130〜215万円 ⚠️（給湯器＋太陽光パワコン＋<b>床暖房熱源機が重なる</b>）<br>
+        ・20年後　　約180〜320万円（屋根補修・シロアリ）<br>
+        ・25年後　　約335〜555万円 ⚠️（給湯器2回目＋<b>蓄電池交換が重なる</b>）<br>
+        ・30年後　　約390〜660万円（コーキング打ち替え・パワコン2回目）<br>
+        ＋フィルター交換（年0.5〜2万 × 30年 ≒ 15〜60万円）<br>
+        <b>30年総計：約400〜720万円 → 月積立の目安 約1.1〜2万円/月</b><br><br>
+        <b>【サイディング外壁（夢創・桧家・アイフル等）の場合】</b><br>
+        ・5年後　　 約15〜25万円（シロアリ）<br>
+        ・10年後　　約50〜100万円（コーキング打ち替えが加わる）<br>
+        ・15年後　　約175〜335万円 ⚠️（外壁塗り替え＋給湯器＋パワコンが重なる）<br>
+        ・20年後　　約240〜490万円（コーキング2回目・屋根補修）<br>
+        ・25年後　　約395〜725万円 ⚠️（給湯器2回目＋蓄電池）<br>
+        ・30年後　　約500〜950万円（外壁塗り替え2回目・コーキング3回目）<br>
+        <b>30年総計：約500〜1,000万円 → 月積立の目安 約1.4〜2.8万円/月</b><br><br>
+        💡 <b>タイル（一条）とサイディングの30年差：約100〜300万円。</b>外壁材の違いがそのままランニングコストの差になります。<br>
+        ⚠️ <b>15年目・25年目前後に大型出費が重なりやすい</b>ので、その時期に向けて積み増しておくと安心です。</span>
+      </details>
+
       <div class="note" style="background:var(--leaf-soft);color:var(--leaf-dark);">✅ 上記はあくまで<b>一般的な目安・参考値</b>です。家の大きさ・仕様・業者・物価によって変わります。各社に<b>「10年・20年・30年のメンテナンス計画と費用の目安」</b>を聞いておくと比較しやすいです。</div>
     </div>
   </div>
+  </details>
 
   <!-- 立地・水害リスク -->
   <div class="sec-title">🌊 立地・水害リスク（ハザードマップ）</div>
