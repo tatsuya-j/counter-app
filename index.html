@@ -418,8 +418,8 @@
 
   details.company > summary { list-style: none; cursor: pointer; user-select: none; }
   details.company > summary::-webkit-details-marker { display: none; }
-  details.company:not([open]) > summary .status::after { content: " ▼"; font-size: 0.55rem; opacity: 0.65; }
-  details.company[open] > summary .status::after { content: " ▲"; font-size: 0.55rem; opacity: 0.65; }
+  .tap-hint { font-size: 0.6rem; color: rgba(255,255,255,0.8); margin-top: 5px; text-align: right; letter-spacing: 0.02em; }
+  details.company[open] > summary .tap-hint { visibility: hidden; }
 
   details.sec-fold > summary {
     list-style: none;
@@ -745,7 +745,10 @@
   <details class="company">
     <summary class="company-head" style="background:linear-gradient(135deg,#7d8a92,#5f6b73);">
       <div class="company-name">住んでからかかるお金<small>初期費用とは別に毎月・数年ごとにかかる費用の目安</small></div>
-      <div class="status" style="background:#fff;color:#5f6b73;">比較の参考に</div>
+      <div style="text-align:right;">
+        <div class="status" style="background:#fff;color:#5f6b73;">比較の参考に</div>
+        <div class="tap-hint">▼ 詳細はタップ</div>
+      </div>
     </summary>
     <div class="company-body">
       <div class="row"><span class="k">外壁（サイディング）</span><span class="v">10〜15年ごと 約50〜120万円 <span class="tag warn">足場代込み</span></span></div>
