@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>マイホーム計画 進捗管理</title>
+<title>家づくりノート ／ 進捗管理</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
 
@@ -41,42 +41,64 @@
 
   header {
     text-align: center;
-    padding: 22px 18px 24px;
-    background: linear-gradient(135deg, var(--leaf) 0%, var(--leaf-dark) 100%);
-    border-radius: 22px;
+    padding: 34px 22px 26px;
+    background: linear-gradient(150deg, #5f8253 0%, #3f5c38 100%);
+    border-radius: 20px;
     color: #fff;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(63,92,56,0.25);
+    box-shadow: 0 12px 30px rgba(63,92,56,0.22);
   }
   header::before {
-    content: "🏡";
+    content: "";
     position: absolute;
-    font-size: 120px;
-    opacity: 0.12;
-    right: -20px;
-    top: -25px;
-    transform: rotate(12deg);
+    inset: 0;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(255,255,255,0.10), transparent 42%),
+      radial-gradient(circle at 12% 88%, rgba(255,255,255,0.06), transparent 38%);
+    pointer-events: none;
+  }
+  header .eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.42em;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.72;
+    margin-bottom: 12px;
+    padding-left: 0.42em;
+    position: relative;
   }
   header h1 {
     font-family: 'Zen Maru Gothic', serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
+    font-size: 1.42rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    padding-left: 0.14em;
+    position: relative;
+  }
+  header h1 .accent { font-weight: 400; opacity: 0.78; }
+  header .divider {
+    width: 34px;
+    height: 2px;
+    background: rgba(255,255,255,0.45);
+    border-radius: 2px;
+    margin: 13px auto 0;
     position: relative;
   }
   header .sub {
-    font-size: 0.82rem;
-    opacity: 0.9;
-    margin-top: 4px;
+    font-size: 0.74rem;
+    opacity: 0.86;
+    margin-top: 11px;
+    letter-spacing: 0.06em;
     position: relative;
   }
   header .updated {
     display: inline-block;
-    margin-top: 12px;
-    font-size: 0.72rem;
-    background: rgba(255,255,255,0.2);
-    padding: 4px 14px;
+    margin-top: 15px;
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.16);
+    padding: 4px 16px;
     border-radius: 20px;
     position: relative;
   }
@@ -94,25 +116,42 @@
   .summary {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 16px;
+    gap: 9px;
+    margin-top: 14px;
   }
   .sum-card {
     background: var(--card);
-    border: 1.5px solid var(--line);
-    border-radius: 16px;
-    padding: 14px;
-    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 13px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    position: relative;
   }
-  .sum-card .label { font-size: 0.72rem; color: var(--muted); }
+  .sum-card::before {
+    content: "";
+    position: absolute;
+    left: 15px; top: 14px;
+    width: 14px; height: 2px;
+    background: var(--leaf);
+    border-radius: 2px;
+    opacity: 0.55;
+  }
+  .sum-card .label {
+    font-size: 0.66rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-top: 9px;
+  }
   .sum-card .value {
     font-family: 'Zen Maru Gothic', serif;
-    font-size: 1.4rem;
-    font-weight: 900;
+    font-size: 1.18rem;
+    font-weight: 700;
     color: var(--leaf-dark);
-    margin-top: 2px;
+    letter-spacing: 0.01em;
   }
-  .sum-card .value small { font-size: 0.8rem; }
+  .sum-card .value small { font-size: 0.72rem; font-weight: 500; color: var(--muted); margin-left: 1px; }
 
   .timeline {
     background: var(--card);
@@ -437,17 +476,19 @@
     color: var(--leaf-dark);
   }
   details.sec-fold > summary::-webkit-details-marker { display: none; }
-  details.sec-fold > summary::after { content: " ▼"; font-size: 0.6rem; opacity: 0.45; flex-shrink: 0; }
-  details.sec-fold[open] > summary::after { content: " ▲"; }
+  details.sec-fold:not([open]) > summary::after { content: "タップで開く ▼"; font-size: 0.62rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; flex-shrink: 0; }
+  details.sec-fold[open] > summary::after { content: "閉じる ▲"; font-size: 0.62rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; flex-shrink: 0; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <h1>マイホーム計画</h1>
-    <div class="sub">ハウスメーカー見積もり 進捗管理</div>
-    <div class="updated">最終更新：2026年6月11日</div>
+    <div class="eyebrow">Our Home Project</div>
+    <h1>家づくり<span class="accent">ノート</span></h1>
+    <div class="divider"></div>
+    <div class="sub">ハウスメーカー比較・進捗管理</div>
+    <div class="updated">最終更新　2026.6.11</div>
   </header>
 
   <div class="summary">
@@ -460,12 +501,12 @@
       <div class="value">2<small>社</small></div>
     </div>
     <div class="sum-card">
-      <div class="label">予算の目安</div>
+      <div class="label">予算のめやす</div>
       <div class="value">3,400<small>万円</small></div>
     </div>
     <div class="sum-card">
-      <div class="label">父からの援助</div>
-      <div class="value">1,000<small>万円</small></div>
+      <div class="label">目標の入居</div>
+      <div class="value">2026<small>年度内</small></div>
     </div>
   </div>
 
@@ -847,11 +888,14 @@
 
   <!-- 立地・水害リスク -->
   <div class="sec-title">🌊 立地・水害リスク（ハザードマップ）</div>
-  <div class="company">
-    <div class="company-head" style="background:linear-gradient(135deg,#4a7a93,#345a6e);">
+  <details class="company">
+    <summary class="company-head" style="background:linear-gradient(135deg,#4a7a93,#345a6e);">
       <div class="company-name">久喜市新井の土地<small>ハザードマップ確認結果（2026年6月）</small></div>
-      <div class="status" style="background:#fff;color:#345a6e;">1m対策を採用予定</div>
-    </div>
+      <div style="text-align:right;">
+        <div class="status" style="background:#fff;color:#345a6e;">1m対策を採用予定</div>
+        <div class="tap-hint">▼ 詳細はタップ</div>
+      </div>
+    </summary>
     <div class="company-body">
       <div class="row"><span class="k">該当エリア</span><span class="v">洪水浸水想定区域 <span class="tag warn">該当あり</span></span></div>
       <div class="row"><span class="k">想定浸水深</span><span class="v big">5.0〜10.0<span class="yen">m</span></span></div>
@@ -884,15 +928,18 @@
       カスリーン台風（1947年）のときに<b>床下浸水</b>があったが、それ以降は特に浸水・冠水の被害はなし。ハザードマップ上の「想定最大5〜10m」はあくまで1000年に1回レベルの最悪ケースであり、実態としては長期間浸水被害が起きていないことが確認できた。<br><br>
       💡 <b>カスリーン台風とは？</b>　1947年（昭和22年）に関東地方を直撃した大型台風で、埼玉・群馬を中心に利根川・荒川流域に未曾有の大洪水をもたらした歴史的な災害。その規模でも<b>床下浸水にとどまった</b>という記録は、この土地の実際の水害リスクを考えるうえで安心材料になる。</div>
     </div>
-  </div>
+  </details>
 
   <!-- 住宅ローン -->
   <div class="sec-title">🏦 住宅ローン（フラット35S を目指す）</div>
-  <div class="company">
-    <div class="company-head" style="background:linear-gradient(135deg,#4a7a93,#345a6e);">
+  <details class="company">
+    <summary class="company-head" style="background:linear-gradient(135deg,#4a7a93,#345a6e);">
       <div class="company-name">フラット35S<small>全期間固定・金利引下げメニュー</small></div>
-      <div class="status" style="background:#fff;color:#345a6e;">目標</div>
-    </div>
+      <div style="text-align:right;">
+        <div class="status" style="background:#fff;color:#345a6e;">目標</div>
+        <div class="tap-hint">▼ 詳細はタップ</div>
+      </div>
+    </summary>
     <div class="company-body">
       <div class="row"><span class="k">どんな制度？</span><span class="v">住宅ローンの金利が一定期間 安くなる</span></div>
       <div class="row"><span class="k">引下げ幅（目安）</span><span class="v">年 ▲0.25%程度</span></div>
@@ -910,15 +957,18 @@
       </details>
       <div class="note" style="background:var(--sun-soft);color:#8a6320;">⚠️ 金利・条件は<b>年度ごとに変わります</b>。必ず最新の住宅金融支援機構（フラット35 公式サイト）で確認し、各ハウスメーカーに「<b>フラット35S の適合証明書を出せますか？</b>」と聞いてください。</div>
     </div>
-  </div>
+  </details>
 
   <!-- 贈与税・名義 -->
   <div class="sec-title">🎁 父からの援助（贈与税と名義の注意点）</div>
-  <div class="company">
-    <div class="company-head" style="background:linear-gradient(135deg,#b06a6a,#8a4a4a);">
+  <details class="company">
+    <summary class="company-head" style="background:linear-gradient(135deg,#b06a6a,#8a4a4a);">
       <div class="company-name">住宅取得等資金の贈与税非課税特例<small>2026年内に贈与実行予定</small></div>
-      <div class="status" style="background:#fff;color:#8a4a4a;">要確認</div>
-    </div>
+      <div style="text-align:right;">
+        <div class="status" style="background:#fff;color:#8a4a4a;">要確認</div>
+        <div class="tap-hint">▼ 詳細はタップ</div>
+      </div>
+    </summary>
     <div class="company-body">
       <div class="row"><span class="k">非課税限度額（省エネ住宅）</span><span class="v big">1,000<span class="yen">万円</span></span></div>
       <div class="row"><span class="k">非課税限度額（一般住宅）</span><span class="v">500万円</span></div>
@@ -939,10 +989,11 @@
         👉 <b>持分の設計は必ず司法書士 or 税理士に確認</b>してから決めること。ここだけはプロに頼むのが安心です。</span>
       </details>
     </div>
-  </div>
+  </details>
 
   <!-- 聞くことリスト -->
-  <div class="sec-title">❓ ハウスメーカーに聞くことリスト</div>
+  <details class="sec-fold">
+  <summary>❓ ハウスメーカーに聞くことリスト</summary>
   <ul class="todos">
     <li><span class="num">1</span><span><b>フラット35S に対応できるか</b>：適合証明書を出せるか／どのプラン（5年・10年）の基準を満たすか</span></li>
     <li><span class="num">2</span><span>
@@ -1019,9 +1070,11 @@
       </details>
     </span></li>
   </ul>
+  </details>
 
   <!-- 次にやること -->
-  <div class="sec-title">✅ 次にやること</div>
+  <details class="sec-fold">
+  <summary>✅ 次にやること</summary>
   <ul class="todos">
     <li><span class="num">1</span><span>✅ 6/11 一条工務店 初回打ち合わせ・見学 完了 → 次：6/20 ローン打ち合わせ・6/26 幕張ラボ見学・6/27 父と現地挨拶</span></li>
     <li><span class="num">2</span><span>6/14 アイフルホームの打ち合わせ（付帯工事込み総額・UA値・C値・EV充電・GX補助金・フラット35S適合を確認）</span></li>
@@ -1032,9 +1085,11 @@
     <li><span class="num">7</span><span>2026年度内完成から逆算して着工時期を確認・スケジュールを各社と詰める</span></li>
     <li><span class="num">8</span><span>✅ お父さまへの浸水歴ヒアリング完了（カスリーン台風1947年の床下浸水のみ・以降被害なし）→ 1m耐水害オプション採用予定に決定</span></li>
   </ul>
+  </details>
 
   <!-- 家族で話し合うこと -->
-  <div class="sec-title">👨‍👩‍👧 家族で話し合うこと</div>
+  <details class="sec-fold">
+  <summary>👨‍👩‍👧 家族で話し合うこと</summary>
 
   <details class="discuss">
     <summary>🛕 仏壇・神棚をどこに置くか</summary>
@@ -1055,6 +1110,7 @@
     </div>
     <div class="discuss-note">💡 <b>ざっくりの費用差：</b>延床33坪→35坪の2坪増は、坪60〜70万円計算で約<b>120〜140万円の増額</b>になることが多い（各社の坪単価次第で変わるため、見積もりで確認を）</div>
   </details>
+  </details>
 
   <!-- アーカイブ集 -->
   <div class="sec-title">📚 アーカイブ集</div>
@@ -1073,7 +1129,7 @@
   </div>
 
   <footer>
-    マイホーム計画 進捗管理ダッシュボード<br>
+    家づくりノート ／ 進捗管理<br>
     ※金額は概算・目安です。正式な見積もりで変動します
   </footer>
 
