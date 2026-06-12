@@ -416,6 +416,11 @@
     background: var(--rose-soft); border-radius: 8px;
   }
 
+  details.company > summary { list-style: none; cursor: pointer; user-select: none; }
+  details.company > summary::-webkit-details-marker { display: none; }
+  details.company:not([open]) > summary .status::after { content: " ▼"; font-size: 0.55rem; opacity: 0.65; }
+  details.company[open] > summary .status::after { content: " ▲"; font-size: 0.55rem; opacity: 0.65; }
+
   details.sec-fold > summary {
     list-style: none;
     cursor: pointer;
@@ -736,13 +741,12 @@
   </div>
 
   <!-- ランニング・メンテ費用 -->
-  <details class="sec-fold">
-  <summary>💴 ランニング・メンテ費用の目安</summary>
-  <div class="company">
-    <div class="company-head" style="background:linear-gradient(135deg,#7d8a92,#5f6b73);">
+  <div class="sec-title">💴 ランニング・メンテ費用の目安</div>
+  <details class="company">
+    <summary class="company-head" style="background:linear-gradient(135deg,#7d8a92,#5f6b73);">
       <div class="company-name">住んでからかかるお金<small>初期費用とは別に毎月・数年ごとにかかる費用の目安</small></div>
       <div class="status" style="background:#fff;color:#5f6b73;">比較の参考に</div>
-    </div>
+    </summary>
     <div class="company-body">
       <div class="row"><span class="k">外壁（サイディング）</span><span class="v">10〜15年ごと 約50〜120万円 <span class="tag warn">足場代込み</span></span></div>
       <div class="row"><span class="k">外壁（光触媒コーティング）</span><span class="v">15〜25年に延びる場合あり <span class="tag ok">塗り替え周期↑</span></span></div>
@@ -834,7 +838,6 @@
 
       <div class="note" style="background:var(--leaf-soft);color:var(--leaf-dark);">✅ 上記はあくまで<b>一般的な目安・参考値</b>です。家の大きさ・仕様・業者・物価によって変わります。各社に<b>「10年・20年・30年のメンテナンス計画と費用の目安」</b>を聞いておくと比較しやすいです。</div>
     </div>
-  </div>
   </details>
 
   <!-- 立地・水害リスク -->
