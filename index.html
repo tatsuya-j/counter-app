@@ -208,6 +208,48 @@
   .tl-badge.now    { background: var(--sun-soft);  color: var(--sun); }
   .tl-badge.future { background: var(--gray-soft); color: var(--muted); }
   .tl-badge.goal   { background: var(--rose-soft); color: var(--rose); }
+  details.tl-done-group {
+    position: relative;
+    padding-bottom: 20px;
+  }
+  details.tl-done-group::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 22px;
+    width: 2px; height: calc(100% - 18px);
+    background: var(--line);
+  }
+  details.tl-done-group > summary {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    list-style: none;
+    cursor: pointer;
+  }
+  details.tl-done-group > summary::-webkit-details-marker { display: none; }
+  .tl-done-inner {
+    margin-left: 32px;
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: var(--leaf-soft);
+    border-radius: 8px;
+  }
+  .tl-done-row {
+    font-size: 0.78rem;
+    padding: 5px 0;
+    color: #444;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex;
+    gap: 8px;
+  }
+  .tl-done-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl-done-date {
+    font-weight: 700;
+    color: var(--leaf-dark);
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 5.5em;
+  }
 
   .company {
     background: var(--card);
@@ -514,46 +556,22 @@
   <!-- スケジュール -->
   <div class="sec-title">🗓 スケジュール・期限</div>
   <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-dot done"></div>
-      <div class="tl-body">
-        <div class="tl-date">〜5月中旬</div>
-        <div class="tl-task">夢創・桧家の初回見積もり受領<span class="tl-badge done">完了</span></div>
-        <div class="tl-sub">2社の実数見積もりが手元にある（いずれも33〜35坪プランで再依頼中）</div>
+    <details class="tl-done-group">
+      <summary>
+        <div class="tl-dot done"></div>
+        <div class="tl-body">
+          <div class="tl-task">✅ 完了した予定（5件）<span class="tl-badge done">すべて完了</span></div>
+          <div class="tl-sub">▼ タップで内訳を表示</div>
+        </div>
+      </summary>
+      <div class="tl-done-inner">
+        <div class="tl-done-row"><span class="tl-done-date">〜5月中旬</span><span>夢創・桧家の初回見積もり受領</span></div>
+        <div class="tl-done-row"><span class="tl-done-date">6月上旬</span><span>夢創：建て替えに確定・見積り再依頼済み</span></div>
+        <div class="tl-done-row"><span class="tl-done-date">6月8日</span><span>一条工務店 概算情報を入手</span></div>
+        <div class="tl-done-row"><span class="tl-done-date">6月11日</span><span>一条工務店 初回打ち合わせ・住宅見学 完了</span></div>
+        <div class="tl-done-row"><span class="tl-done-date">6月14日</span><span>アイフルホーム 見積もり打ち合わせ完了 — 総合計3,821万・UA値0.40・FAVO確認</span></div>
       </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot done"></div>
-      <div class="tl-body">
-        <div class="tl-date">6月上旬</div>
-        <div class="tl-task">夢創：建て替えに確定・見積り再依頼済み<span class="tl-badge done">完了</span></div>
-        <div class="tl-sub">リフォームから建て替えに変更を伝達。33〜35坪で付帯工事・諸費用込みの総額を再取得中</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot done"></div>
-      <div class="tl-body">
-        <div class="tl-date">6月8日</div>
-        <div class="tl-task">一条工務店（アイスマートプラス）の概算情報を入手<span class="tl-badge done">完了</span></div>
-        <div class="tl-sub">担当の知人（営業）から概算を入手。提示商品はアイスマートプラス。個人的にはハグミーを並行検討中</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot done"></div>
-      <div class="tl-body">
-        <div class="tl-date">6月11日</div>
-        <div class="tl-task">一条工務店 初回打ち合わせ・住宅見学 完了<span class="tl-badge done">完了</span></div>
-        <div class="tl-sub">正式見積もり受領・ハグミー/アイスマートプラスの違いを確認。今後のスケジュールも確認済み</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot done"></div>
-      <div class="tl-body">
-        <div class="tl-date">6月14日</div>
-        <div class="tl-task">アイフルホーム 見積もり打ち合わせ 完了<span class="tl-badge done">完了</span></div>
-        <div class="tl-sub">建物費3,237万・総合計3,821万・延床36.75坪・UA値0.40（HEAT20 G2）・ZEH適合・FAVO仕様を確認。GX補助金の詳細は要再確認</div>
-      </div>
-    </div>
+    </details>
     <div class="tl-item">
       <div class="tl-dot future"></div>
       <div class="tl-body">
