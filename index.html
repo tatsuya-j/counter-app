@@ -898,22 +898,47 @@
   <!-- 一条工務店 -->
   <details class="company">
     <summary class="company-head ichijo">
-      <div class="company-name">一条工務店<small>担当は知人（営業）・初回打ち合わせ・見学済み</small></div>
+      <div class="company-name">一条工務店<small>担当は知人（営業）・6/15 見積もり受領済み</small></div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;">
-        <div class="status now">打ち合わせ進行中</div>
+        <div class="status ok">見積もり受領済み</div>
         <div class="tap-hint">▼ 詳細はタップ</div>
       </div>
     </summary>
     <div class="company-body">
-      <div class="row"><span class="k">提示された商品</span><span class="v">アイスマートプラス（自由設計） <span class="tag maybe">坪75万</span></span></div>
-      <div class="row"><span class="k">個人的に検討したい商品</span><span class="v">ハグミー（規格・100プランから選択） <span class="tag ok">坪65万</span></span></div>
-      <div class="row"><span class="k">依頼床面積</span><span class="v">33坪</span></div>
-      <div class="row"><span class="k">建築総費用（アイスマ・建物のみ概算）</span><span class="v big">約3,143<span class="yen">万円</span></span></div>
-      <div class="row"><span class="k">＋太陽光・蓄電池</span><span class="v">＋約160万円</span></div>
-      <div class="row"><span class="k">＋解体費・耐水害（1m）・地盤改良</span><span class="v">別途加算</span></div>
-      <div class="row"><span class="k">諸費用込みの合計（概算）</span><span class="v big" style="color:var(--rose);">3,600万円以上<span class="yen"></span></span></div>
+
+      <div class="note" style="background:var(--sky-soft);color:#1a4a6e;padding:10px 12px;">
+        <b>📊 3プラン比較（2026/6/15受領・解体・外構・地盤改良・太陽光すべて込み）</b>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:8px 0;">
+        <tr style="background:rgba(26,74,110,0.12);"><th style="padding:5px 4px;text-align:left;">プラン</th><th style="padding:5px 4px;text-align:left;">階数</th><th style="padding:5px 4px;text-align:right;">延床</th><th style="padding:5px 4px;text-align:right;color:var(--rose);">建築総費用</th></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.15);"><td style="padding:5px 4px;"><b>i-smileⅢ+</b></td><td style="padding:5px 4px;">2階建て</td><td style="padding:5px 4px;text-align:right;">32.0坪</td><td style="padding:5px 4px;text-align:right;font-weight:700;">3,763万円</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.15);"><td style="padding:5px 4px;"><b>HUGme 平屋</b></td><td style="padding:5px 4px;">平屋</td><td style="padding:5px 4px;text-align:right;">32.3坪</td><td style="padding:5px 4px;text-align:right;font-weight:700;">3,669万円</td></tr>
+        <tr><td style="padding:5px 4px;"><b>HUGme 2階 S35</b></td><td style="padding:5px 4px;">2階建て</td><td style="padding:5px 4px;text-align:right;">33.3坪</td><td style="padding:5px 4px;text-align:right;font-weight:700;color:var(--rose);">3,594万円 ★最安</td></tr>
+        </table>
+        ※3プランとも太陽光177万・諸費用643万（解体・外構・地盤改良費含む）が共通
+      </div>
+
+      <details class="note" style="background:#e8f4fd;color:#1a4a6e;border-left:3px solid #2196f3;">
+        <summary>💰 各プランの費用内訳</summary>
+        <span class="dc">
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:6px 0;">
+        <tr style="background:rgba(26,74,110,0.1);"><th style="padding:4px 5px;text-align:left;">項目</th><th style="padding:4px 5px;text-align:right;">i-smileⅢ+</th><th style="padding:4px 5px;text-align:right;">HUGme 平屋</th><th style="padding:4px 5px;text-align:right;">HUGme 2階</th></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">建物本体工事</td><td style="padding:4px 5px;text-align:right;">2,094万</td><td style="padding:4px 5px;text-align:right;">1,829万</td><td style="padding:4px 5px;text-align:right;">1,851万</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">坪単価</td><td style="padding:4px 5px;text-align:right;">19.5万/坪</td><td style="padding:4px 5px;text-align:right;">16.7万/坪</td><td style="padding:4px 5px;text-align:right;">15.7万/坪</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">標準仕様外工事</td><td style="padding:4px 5px;text-align:right;">300万</td><td style="padding:4px 5px;text-align:right;">479万</td><td style="padding:4px 5px;text-align:right;">386万</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">太陽光発電</td><td style="padding:4px 5px;text-align:right;">178万</td><td style="padding:4px 5px;text-align:right;">178万</td><td style="padding:4px 5px;text-align:right;">178万</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">付帯屋外工事</td><td style="padding:4px 5px;text-align:right;">227万</td><td style="padding:4px 5px;text-align:right;">227万</td><td style="padding:4px 5px;text-align:right;">227万</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">建物工事費（税込）</td><td style="padding:4px 5px;text-align:right;">3,121万</td><td style="padding:4px 5px;text-align:right;">3,026万</td><td style="padding:4px 5px;text-align:right;">2,951万</td></tr>
+        <tr style="border-bottom:1px solid rgba(26,74,110,0.1);"><td style="padding:4px 5px;">諸費用合計</td><td style="padding:4px 5px;text-align:right;">643万</td><td style="padding:4px 5px;text-align:right;">643万</td><td style="padding:4px 5px;text-align:right;">643万</td></tr>
+        <tr style="background:rgba(26,74,110,0.08);font-weight:700;"><td style="padding:5px 5px;">建築総費用</td><td style="padding:5px 5px;text-align:right;">3,763万</td><td style="padding:5px 5px;text-align:right;">3,669万</td><td style="padding:5px 5px;text-align:right;color:var(--rose);">3,594万</td></tr>
+        </table>
+        ※諸費用643万の内訳：その他工事（解体・外構・地盤改良等）563万 ＋ 預り金80万
+        </span>
+      </details>
+
+      <div class="row"><span class="k">現在の検討プラン</span><span class="v"><b>HUGme 2階 S35</b>（3,594万・最安プラン）</span></div>
+      <div class="row"><span class="k">アイフルとの差額</span><span class="v big" style="color:var(--rose);">＋227万円（一条の方が高い）</span></div>
       <div class="row"><span class="k">断熱性能</span><span class="v">等級6以上 <span class="tag ok">GX志向型住宅の基準クリア</span></span></div>
-      <div class="row"><span class="k">太陽光・蓄電池</span><span class="v">自社製・<span class="tag maybe">ローン購入方式</span></span></div>
+      <div class="row"><span class="k">太陽光＋蓄電池</span><span class="v">自社製・177万円（見積もりに込み済み） <span class="tag ok">蓄電池セット</span></span></div>
       <div class="row"><span class="k">換気システム</span><span class="v">熱交換換気 <span class="tag ok">標準装備</span></span></div>
       <div class="row"><span class="k">外壁</span><span class="v">タイル標準 <span class="tag ok">塗り直し不要・コーキングのみ30年に1回</span></span></div>
       <div class="row"><span class="k">夏のエアコン（冷房）</span><span class="v">1階・2階に各1台（8〜10畳用） <span class="tag ok">断熱性が高いので小型で十分</span></span></div>
@@ -961,15 +986,16 @@
       </details>
 
       <details class="note" style="background:var(--sky-soft);color:#2a5b68;">
-        <summary>💰 予算シミュレーション（アイスマートプラス・33坪）</summary>
-        <span class="dc">予算の目安：<b>3,400万円</b>（解体費含む）<br>
-        一条工務店 アイスマ概算合計：<b>3,600万円以上</b>（建物本体 約3,143万円＋太陽光・蓄電池 約160万円＋解体費＋耐水害オプション1m＋地盤改良）<br>
-        → 差額 <b>200万円以上オーバー</b><br><br>
-        <b>差額を縮める方法：</b><br>
-        ① <b>GX補助金</b>を使う（最大 約125万円の補助）<br>
-        ② <b>ハグミーに切り替える</b>（坪75万→65万、33坪で約330万円安くなる計算。予算内に十分収まる可能性あり）<br>
+        <summary>💰 予算との比較（実見積もりベース）</summary>
+        <span class="dc">
+        <b>【最安プラン】HUGme 2階 S35：建築総費用 3,594万円</b><br><br>
+        アイフルホーム（3,821万）との差額：<b>一条の方が227万円安い</b><br><br>
+        <b>さらに費用を下げる方法：</b><br>
+        ① <b>GX補助金</b>を使う（最大 約125万円の補助）→ 実質 約3,469万円になる可能性<br>
+        ② <b>GX補助金</b>：太陽光＋蓄電池セットが見積もりに込み済みのため補助金の対象になりやすい。担当者に確認を<br>
         ③ <b>紹介割引</b>を使う（条件・割引額は担当者に要確認）<br><br>
-        ※アイスマートプラスのままでは予算オーバーが大きいため、<b>ハグミーへの切り替えが現実的な選択肢</b>として浮上</span>
+        ⚠️ <b>注意点</b>：標準仕様外工事（HUGme 2階で386万、平屋で479万）の内容を確認すること。何が含まれているか不明。
+        </span>
       </details>
 
       <details class="note">
