@@ -521,6 +521,12 @@
   details.sec-fold > summary::-webkit-details-marker { display: none; }
   details.sec-fold:not([open]) > summary::after { content: "タップで開く ▼"; font-size: 0.62rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; flex-shrink: 0; }
   details.sec-fold[open] > summary::after { content: "閉じる ▲"; font-size: 0.62rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; flex-shrink: 0; }
+  /* ツールチップ */
+  .tip-wrap { position: relative; display: inline-block; }
+  .tip-icon { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; background: #5b89a0; color: #fff; border-radius: 50%; font-size: 9px; font-style: normal; font-weight: 700; cursor: pointer; vertical-align: middle; margin-left: 2px; user-select: none; line-height: 1; }
+  .tip-box { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: #1a2533; color: #f0f4f8; padding: 8px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 400; line-height: 1.5; width: 210px; z-index: 200; pointer-events: none; text-align: left; box-shadow: 0 3px 10px rgba(0,0,0,.35); }
+  .tip-box::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #1a2533; }
+  .tip-wrap:hover .tip-box, .tip-wrap.tip-open .tip-box { display: block; }
 </style>
 </head>
 <body>
@@ -767,11 +773,11 @@
         <thead>
           <tr style="background:#1a2533;color:#fff;">
             <th style="padding:7px 6px;text-align:left;min-width:84px;">項目</th>
-            <th style="padding:7px 4px;text-align:center;min-width:68px;">一条<br><small>HUGme 2階</small></th>
-            <th style="padding:7px 4px;text-align:center;min-width:68px;">一条<br><small>i-smileⅢ+</small></th>
-            <th style="padding:7px 4px;text-align:center;min-width:68px;">夢創<br><small>ハウジング</small></th>
-            <th style="padding:7px 4px;text-align:center;min-width:68px;">桧家<br><small>住宅</small></th>
-            <th style="padding:7px 4px;text-align:center;min-width:68px;">アイフル<br><small>FAVO</small></th>
+            <th style="padding:7px 4px;text-align:center;min-width:80px;">一条<br><small>HUGme 2階</small></th>
+            <th style="padding:7px 4px;text-align:center;min-width:80px;">一条<br><small>i-smileⅢ+</small></th>
+            <th style="padding:7px 4px;text-align:center;min-width:80px;">夢創<br><small>ハウジング</small></th>
+            <th style="padding:7px 4px;text-align:center;min-width:80px;">桧家<br><small>住宅</small></th>
+            <th style="padding:7px 4px;text-align:center;min-width:80px;">アイフル<br><small>FAVO</small></th>
           </tr>
         </thead>
         <tbody>
@@ -814,20 +820,25 @@
             <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">UA値0.40<br>等級6 ✅</td>
           </tr>
           <tr style="background:#f0f4f8;">
-            <td style="padding:6px 6px;font-weight:700;color:#2d3a4a;">換気<br><small>システム</small></td>
-            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">熱交換換気<br><small>ロスガード90✅</small></td>
-            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">熱交換換気<br><small>ロスガード90✅</small></td>
-            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認</td>
-            <td style="padding:6px 4px;text-align:center;border-left:1px solid #ddd;">Z空調<br><small>全館空調内蔵</small></td>
-            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認<br><small>（第1種か第3種か）</small></td>
+            <td style="padding:6px 6px;font-weight:700;color:#2d3a4a;">換気<br><small>システム</small>
+              <span class="tip-wrap"><i class="tip-icon">i</i><span class="tip-box">
+                <b>一種換気</b>：給気・排気ともに機械制御。熱交換型なら外気を適温にして取り込む。快適だが電気代が少しかかる。<br><br>
+                <b>三種換気</b>：排気のみ機械、給気は自然（壁の給気口から）。安価だが冬は冷たい外気が入りやすい。
+              </span></span>
+            </td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;"><b>一種換気</b>✅<br><small>ロスガード90<br>熱交換率90%+</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;"><b>一種換気</b>✅<br><small>ロスガード90<br>熱交換率90%+</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認<br><small>（一種 or 三種？）</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;"><b>一種換気</b>✅<br><small>Z空調（全館<br>空調内蔵）</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認<br><small>（一種 or 三種？）</small></td>
           </tr>
           <tr>
-            <td style="padding:6px 6px;font-weight:700;color:#2d3a4a;">耐震等級</td>
-            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3<br><small>最高✅ 全棟標準</small></td>
-            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3<br><small>最高✅ 全棟標準</small></td>
-            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認</td>
-            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認</td>
-            <td style="padding:6px 4px;text-align:center;color:#888;border-left:1px solid #ddd;">要確認<br><small>（標準で等級3か）</small></td>
+            <td style="padding:6px 6px;font-weight:700;color:#2d3a4a;">耐震等級<br><small style="color:#888;font-weight:400;">※等級3は<br>全社共通・最高<br>差は独自補強</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3✅<br><small style="color:#e67e22;font-weight:700;">＋2倍耐震</small><br><small>一条独自<br>壁・床パネル</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3✅<br><small>（HUGmeと<br>同構造体）</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3✅<br><small style="color:#888;">独自補強内容<br>要確認</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3✅<br><small>アクアフォーム<br>との一体構造</small></td>
+            <td style="padding:6px 4px;text-align:center;color:#2a7a2a;border-left:1px solid #ddd;">等級3✅<br><small style="color:#888;">独自補強内容<br>要確認</small></td>
           </tr>
           <tr style="background:#e8edf2;">
             <td colspan="6" style="padding:4px 6px;font-size:0.7rem;font-weight:700;color:#2d3a4a;letter-spacing:.04em;">☀️ エネルギー・設備</td>
@@ -2334,5 +2345,13 @@
   </footer>
 
 </div>
+<script>
+(function(){
+  document.querySelectorAll('.tip-wrap').forEach(function(w){
+    w.addEventListener('click', function(e){ e.stopPropagation(); w.classList.toggle('tip-open'); });
+  });
+  document.addEventListener('click', function(){ document.querySelectorAll('.tip-wrap.tip-open').forEach(function(w){ w.classList.remove('tip-open'); }); });
+})();
+</script>
 </body>
 </html>
