@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sports Bar Menu</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background-color: #0d0d0d;
@@ -25,7 +21,6 @@
       padding: 32px 20px 24px;
       text-align: center;
     }
-
     header .bar-name {
       font-size: 11px;
       letter-spacing: 6px;
@@ -33,7 +28,6 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
-
     header h1 {
       font-size: 32px;
       font-weight: 900;
@@ -41,7 +35,6 @@
       color: #ffffff;
       text-shadow: 0 0 20px rgba(233, 69, 96, 0.4);
     }
-
     header .tagline {
       margin-top: 8px;
       font-size: 13px;
@@ -55,9 +48,7 @@
       padding: 0 16px;
     }
 
-    .section {
-      margin-top: 36px;
-    }
+    .section { margin-top: 36px; }
 
     .section-header {
       display: flex;
@@ -65,28 +56,20 @@
       gap: 12px;
       margin-bottom: 16px;
     }
-
-    .section-icon {
-      font-size: 22px;
-    }
-
+    .section-icon { font-size: 22px; }
     .section-title {
       font-size: 20px;
       font-weight: 800;
       letter-spacing: 2px;
       color: #ffffff;
     }
-
     .section-line {
       flex: 1;
       height: 1px;
       background: linear-gradient(to right, #e94560, transparent);
     }
 
-    .subsection {
-      margin-bottom: 24px;
-    }
-
+    .subsection { margin-bottom: 24px; }
     .subsection-label {
       font-size: 10px;
       letter-spacing: 4px;
@@ -107,77 +90,60 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 20px;
+      padding: 14px 20px;
       border-bottom: 1px solid #222;
       transition: background 0.15s;
     }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item:active { background: #1f1f1f; }
 
-    .menu-item:last-child {
-      border-bottom: none;
-    }
-
-    .menu-item:active {
-      background: #1f1f1f;
-    }
-
-    .item-name {
-      font-size: 16px;
-      font-weight: 600;
-      color: #f0e6d3;
-      letter-spacing: 0.5px;
-    }
-
-    /* ビール用：英語名を大きく、読みを小さく */
-    .beer-en {
+    /* 英語名（大） */
+    .en {
       display: block;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 800;
       letter-spacing: 1.5px;
-      color: #f6e7c1;
       font-family: 'Helvetica Neue', Arial, sans-serif;
     }
-    .beer-jp {
+    /* 日本語（小） */
+    .jp {
       display: block;
       font-size: 11px;
       letter-spacing: 2px;
-      color: #8a8278;
+      color: #7a7068;
       margin-top: 3px;
     }
 
-    .item-dot {
+    /* カテゴリ別カラー */
+    .c-beer  .en { color: #f6e7c1; }
+    .c-sour  .en { color: #e8d5f0; }
+    .c-whisk .en { color: #d4b896; }
+    .c-soft  .en { color: #b0e8e2; }
+    .c-food  .en { color: #f7d49a; }
+    .c-sweet .en { color: #f7b8ce; }
+
+    .dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #e94560;
-      opacity: 0.6;
+      opacity: 0.8;
       flex-shrink: 0;
     }
-
-    .beer-dot {
-      background: #d4af37;
-      opacity: 0.9;
-    }
-
-    .food-dot {
-      background: #f5a623;
-    }
-
-    .nonalc-dot {
-      background: #4ecdc4;
-    }
-
-    .sweet-dot {
-      background: #e88fb0;
-    }
+    .dot-beer  { background: #d4af37; }
+    .dot-sour  { background: #c084e0; }
+    .dot-whisk { background: #e94560; }
+    .dot-soft  { background: #4ecdc4; }
+    .dot-food  { background: #f5a623; }
+    .dot-sweet { background: #e88fb0; }
 
     .item-note {
-      padding: 14px 20px;
-      font-size: 13px;
-      color: #8a8278;
-      letter-spacing: 1px;
+      padding: 12px 20px;
+      font-size: 12px;
+      color: #6a6258;
+      letter-spacing: 1.5px;
       font-style: italic;
       border-top: 1px dashed #2a2a2a;
-      background: #131313;
+      background: #111;
     }
 
     footer {
@@ -187,202 +153,188 @@
       font-size: 11px;
       letter-spacing: 1px;
     }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #2a2a2a, transparent);
-      margin: 0 16px;
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <p class="bar-name">Sports Bar</p>
-    <h1>MENU</h1>
-    <p class="tagline">ご注文はスタッフまで</p>
-  </header>
+<header>
+  <p class="bar-name">Sports Bar</p>
+  <h1>MENU</h1>
+  <p class="tagline">ご注文はスタッフまで</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <!-- ドリンクメニュー -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🍺</span>
-        <h2 class="section-title">ドリンクメニュー</h2>
-        <div class="section-line"></div>
-      </div>
+  <!-- ===== DRINKS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🍺</span>
+      <h2 class="section-title">ドリンクメニュー</h2>
+      <div class="section-line"></div>
+    </div>
 
-      <!-- ビール -->
-      <div class="subsection">
-        <p class="subsection-label" style="color: #d4af37;">Beer</p>
-        <div class="menu-list">
-          <div class="menu-item">
-            <span class="item-name">
-              <span class="beer-en">Heineken</span>
-              <span class="beer-jp">ハイネケン</span>
-            </span>
-            <span class="item-dot beer-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">
-              <span class="beer-en">YEBISU</span>
-              <span class="beer-jp">エビス</span>
-            </span>
-            <span class="item-dot beer-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">
-              <span class="beer-en">Budweiser</span>
-              <span class="beer-jp">バドワイザー</span>
-            </span>
-            <span class="item-dot beer-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">
-              <span class="beer-en">Corona Extra</span>
-              <span class="beer-jp">コロナ</span>
-            </span>
-            <span class="item-dot beer-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">
-              <span class="beer-en">The Premium Malt's</span>
-              <span class="beer-jp">プレモル</span>
-            </span>
-            <span class="item-dot beer-dot"></span>
-          </div>
+    <!-- Beer -->
+    <div class="subsection">
+      <p class="subsection-label" style="color:#d4af37;">Beer</p>
+      <div class="menu-list">
+        <div class="menu-item c-beer">
+          <span><span class="en">Heineken</span><span class="jp">ハイネケン</span></span>
+          <span class="dot dot-beer"></span>
         </div>
-      </div>
-
-      <!-- サワー & ウイスキー -->
-      <div class="subsection">
-        <p class="subsection-label">Sour &amp; Whisky</p>
-        <div class="menu-list">
-          <div class="menu-item">
-            <span class="item-name">レモンサワー</span>
-            <span class="item-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">梅干しサワー</span>
-            <span class="item-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">ニッカウヰスキー フロムザバレル</span>
-            <span class="item-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">知多ハイボール</span>
-            <span class="item-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">サントリースペシャルリザーブ</span>
-            <span class="item-dot"></span>
-          </div>
+        <div class="menu-item c-beer">
+          <span><span class="en">YEBISU</span><span class="jp">エビス</span></span>
+          <span class="dot dot-beer"></span>
         </div>
-      </div>
-
-      <!-- ソフトドリンク -->
-      <div class="subsection">
-        <p class="subsection-label" style="color: #4ecdc4;">Non-Alcohol / Soft Drink</p>
-        <div class="menu-list">
-          <div class="menu-item">
-            <span class="item-name">ノンアルビール</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">牛乳</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">豆乳</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">梅ソーダ</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">麦茶</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">アイスコーヒー</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">アイスカフェラテ</span>
-            <span class="item-dot nonalc-dot"></span>
-          </div>
+        <div class="menu-item c-beer">
+          <span><span class="en">Budweiser</span><span class="jp">バドワイザー</span></span>
+          <span class="dot dot-beer"></span>
+        </div>
+        <div class="menu-item c-beer">
+          <span><span class="en">Corona Extra</span><span class="jp">コロナ</span></span>
+          <span class="dot dot-beer"></span>
+        </div>
+        <div class="menu-item c-beer">
+          <span><span class="en">The Premium Malt's</span><span class="jp">プレモル</span></span>
+          <span class="dot dot-beer"></span>
         </div>
       </div>
     </div>
 
-    <!-- フードメニュー -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🍿</span>
-        <h2 class="section-title">フードメニュー</h2>
-        <div class="section-line" style="background: linear-gradient(to right, #f5a623, transparent);"></div>
-      </div>
-
-      <div class="subsection">
-        <p class="subsection-label" style="color: #f5a623;">Food</p>
-        <div class="menu-list">
-          <div class="menu-item">
-            <span class="item-name">ポップコーン</span>
-            <span class="item-dot food-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">ポテチ</span>
-            <span class="item-dot food-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">クリームチーズ</span>
-            <span class="item-dot food-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">チータラ</span>
-            <span class="item-dot food-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">唐揚げ</span>
-            <span class="item-dot food-dot"></span>
-          </div>
-          <div class="item-note">その他おつまみ各種ご用意しております</div>
+    <!-- Sour -->
+    <div class="subsection">
+      <p class="subsection-label" style="color:#c084e0;">Sour</p>
+      <div class="menu-list">
+        <div class="menu-item c-sour">
+          <span><span class="en">Lemon Sour</span><span class="jp">レモンサワー</span></span>
+          <span class="dot dot-sour"></span>
+        </div>
+        <div class="menu-item c-sour">
+          <span><span class="en">Umeboshi Sour</span><span class="jp">梅干しサワー</span></span>
+          <span class="dot dot-sour"></span>
         </div>
       </div>
     </div>
 
-    <!-- アイス・甘味 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🍨</span>
-        <h2 class="section-title">アイス・甘味</h2>
-        <div class="section-line" style="background: linear-gradient(to right, #e88fb0, transparent);"></div>
-      </div>
-
-      <div class="subsection">
-        <p class="subsection-label" style="color: #e88fb0;">Ice Cream &amp; Sweets</p>
-        <div class="menu-list">
-          <div class="menu-item">
-            <span class="item-name">アイスクリーム</span>
-            <span class="item-dot sweet-dot"></span>
-          </div>
-          <div class="menu-item">
-            <span class="item-name">甘味各種</span>
-            <span class="item-dot sweet-dot"></span>
-          </div>
-          <div class="item-note">詳しくはスタッフまでお尋ねください</div>
+    <!-- Whisky -->
+    <div class="subsection">
+      <p class="subsection-label" style="color:#d4b896;">Whisky &amp; Highball</p>
+      <div class="menu-list">
+        <div class="menu-item c-whisk">
+          <span><span class="en">Nikka From the Barrel</span><span class="jp">ニッカウヰスキー フロムザバレル</span></span>
+          <span class="dot dot-whisk"></span>
+        </div>
+        <div class="menu-item c-whisk">
+          <span><span class="en">Chita Highball</span><span class="jp">知多ハイボール</span></span>
+          <span class="dot dot-whisk"></span>
+        </div>
+        <div class="menu-item c-whisk">
+          <span><span class="en">Suntory Special Reserve</span><span class="jp">サントリースペシャルリザーブ</span></span>
+          <span class="dot dot-whisk"></span>
         </div>
       </div>
     </div>
 
+    <!-- Soft Drink -->
+    <div class="subsection">
+      <p class="subsection-label" style="color:#4ecdc4;">Non-Alcohol / Soft Drink</p>
+      <div class="menu-list">
+        <div class="menu-item c-soft">
+          <span><span class="en">Non-Alc Beer</span><span class="jp">ノンアルビール</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+        <div class="menu-item c-soft">
+          <span><span class="en">Fresh Milk</span><span class="jp">牛乳</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+        <div class="menu-item c-soft">
+          <span><span class="en">Soy Milk</span><span class="jp">豆乳</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+        <div class="menu-item c-soft">
+          <span><span class="en">Ume Soda</span><span class="jp">梅ソーダ</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+        <div class="menu-item c-soft">
+          <span><span class="en">Barley Tea</span><span class="jp">麦茶</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+        <div class="menu-item c-soft">
+          <span><span class="en">Iced Coffee</span><span class="jp">アイスコーヒー</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+        <div class="menu-item c-soft">
+          <span><span class="en">Iced Café Latte</span><span class="jp">アイスカフェラテ</span></span>
+          <span class="dot dot-soft"></span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <footer>
-    <p>Enjoy the game &amp; have a great time 🏆</p>
-  </footer>
+  <!-- ===== FOOD ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🍿</span>
+      <h2 class="section-title">フードメニュー</h2>
+      <div class="section-line" style="background:linear-gradient(to right,#f5a623,transparent);"></div>
+    </div>
+
+    <div class="subsection">
+      <p class="subsection-label" style="color:#f5a623;">Food</p>
+      <div class="menu-list">
+        <div class="menu-item c-food">
+          <span><span class="en">Popcorn</span><span class="jp">ポップコーン</span></span>
+          <span class="dot dot-food"></span>
+        </div>
+        <div class="menu-item c-food">
+          <span><span class="en">Potato Chips</span><span class="jp">ポテチ</span></span>
+          <span class="dot dot-food"></span>
+        </div>
+        <div class="menu-item c-food">
+          <span><span class="en">Cream Cheese</span><span class="jp">クリームチーズ</span></span>
+          <span class="dot dot-food"></span>
+        </div>
+        <div class="menu-item c-food">
+          <span><span class="en">Cheese &amp; Cod Roe</span><span class="jp">チータラ</span></span>
+          <span class="dot dot-food"></span>
+        </div>
+        <div class="menu-item c-food">
+          <span><span class="en">Karaage</span><span class="jp">唐揚げ</span></span>
+          <span class="dot dot-food"></span>
+        </div>
+        <div class="item-note">＋ Assorted Bar Snacks　その他おつまみ各種</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SWEETS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🍨</span>
+      <h2 class="section-title">アイス・甘味</h2>
+      <div class="section-line" style="background:linear-gradient(to right,#e88fb0,transparent);"></div>
+    </div>
+
+    <div class="subsection">
+      <p class="subsection-label" style="color:#e88fb0;">Ice Cream &amp; Sweets</p>
+      <div class="menu-list">
+        <div class="menu-item c-sweet">
+          <span><span class="en">Ice Cream</span><span class="jp">アイスクリーム</span></span>
+          <span class="dot dot-sweet"></span>
+        </div>
+        <div class="menu-item c-sweet">
+          <span><span class="en">Assorted Sweets</span><span class="jp">甘味各種</span></span>
+          <span class="dot dot-sweet"></span>
+        </div>
+        <div class="item-note">詳しくはスタッフまでお尋ねください</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Enjoy the game &amp; have a great time 🏆</p>
+</footer>
 
 </body>
 </html>
