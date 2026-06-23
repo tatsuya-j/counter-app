@@ -1,13 +1,503 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>counter-app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マイホーム計画 進捗管理</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+
+  :root {
+    --ink: #2b2b2b;
+    --paper: #faf6ef;
+    --card: #ffffff;
+    --line: #e6ddd0;
+    --leaf: #5a7d4f;
+    --leaf-dark: #3f5c38;
+    --leaf-soft: #e8efe2;
+    --sun: #d99a2b;
+    --sun-soft: #f7ecd4;
+    --sky: #4a7a93;
+    --sky-soft: #e0ecf1;
+    --rose: #b06a6a;
+    --rose-soft: #f1e2e2;
+    --gray-soft: #f0ece4;
+    --muted: #8a8278;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    padding: 20px 14px 60px;
+    background-image: radial-gradient(var(--line) 0.5px, transparent 0.5px);
+    background-size: 18px 18px;
+  }
+
+  .wrap { max-width: 540px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 22px 18px 24px;
+    background: linear-gradient(135deg, var(--leaf) 0%, var(--leaf-dark) 100%);
+    border-radius: 22px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(63,92,56,0.25);
+  }
+  header::before {
+    content: "🏡";
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.12;
+    right: -20px;
+    top: -25px;
+    transform: rotate(12deg);
+  }
+  header h1 {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  header .sub {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    margin-top: 4px;
+    position: relative;
+  }
+  header .updated {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.72rem;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    position: relative;
+  }
+
+  .sec-title {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 30px 6px 14px;
+    padding-left: 12px;
+    border-left: 5px solid var(--leaf);
+    color: var(--leaf-dark);
+  }
+
+  .summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .sum-card {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    padding: 14px;
+    text-align: center;
+  }
+  .sum-card .label { font-size: 0.72rem; color: var(--muted); }
+  .sum-card .value {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--leaf-dark);
+    margin-top: 2px;
+  }
+  .sum-card .value small { font-size: 0.8rem; }
+
+  /* タイムライン */
+  .timeline {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 18px;
+    padding: 20px 18px 12px;
+    margin-top: 4px;
+  }
+  .tl-item {
+    display: flex;
+    gap: 14px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .tl-item:last-child { padding-bottom: 4px; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 22px;
+    width: 2px; height: calc(100% - 18px);
+    background: var(--line);
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--line);
+    z-index: 1;
+  }
+  .tl-dot.done { background: var(--leaf); box-shadow: 0 0 0 2px var(--leaf); }
+  .tl-dot.now { background: var(--sun); box-shadow: 0 0 0 2px var(--sun); animation: pulse 1.8s infinite; }
+  .tl-dot.future { background: #fff; }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 2px var(--sun); }
+    50% { box-shadow: 0 0 0 6px var(--sun-soft); }
+  }
+  .tl-body { flex: 1; }
+  .tl-date {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .tl-date.hot { color: var(--sun); }
+  .tl-task {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .tl-sub { font-size: 0.76rem; color: var(--muted); margin-top: 2px; }
+  .tl-badge {
+    display: inline-block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tl-badge.done { background: var(--leaf-soft); color: var(--leaf-dark); }
+  .tl-badge.now { background: var(--sun-soft); color: var(--sun); }
+  .tl-badge.future { background: var(--gray-soft); color: var(--muted); }
+
+  .company {
+    background: var(--card);
+    border-radius: 20px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    border: 1.5px solid var(--line);
+  }
+  .company.ref { opacity: 0.96; border-style: dashed; }
+  .company-head {
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: #fff;
+  }
+  .company-head.dream { background: linear-gradient(135deg,#6b8e5f,#4e7042); }
+  .company-head.hinokiya { background: linear-gradient(135deg,#c98a3d,#a86a26); }
+  .company-head.aiful { background: linear-gradient(135deg,#7d8a92,#5f6b73); }
+  .company-head.clever { background: linear-gradient(135deg,#9aa0a6,#7c828a); }
+
+  .company-name {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.15rem;
+    font-weight: 900;
+  }
+  .company-name small {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+  .status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.25);
+  }
+  .status.done { background: #fff; color: var(--leaf-dark); }
+  .status.wait { background: #fff; color: var(--sun); }
+  .status.todo { background: rgba(255,255,255,0.2); color: #fff; }
+  .status.ref { background: rgba(255,255,255,0.3); color: #fff; }
+
+  .company-body { padding: 6px 18px 18px; }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+    gap: 10px;
+  }
+  .row:last-child { border-bottom: none; }
+  .row .k { font-size: 0.8rem; color: var(--muted); flex-shrink: 0; }
+  .row .v { font-size: 0.92rem; font-weight: 700; text-align: right; }
+  .row .v.big {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--leaf-dark);
+  }
+  .row .v .yen { font-size: 0.78rem; }
+  .tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin-left: 4px;
+  }
+  .tag.ok { background: var(--leaf-soft); color: var(--leaf-dark); }
+  .tag.maybe { background: var(--sun-soft); color: var(--sun); }
+  .tag.q { background: var(--gray-soft); color: var(--muted); }
+  .note {
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: var(--gray-soft);
+    border-radius: 10px;
+  }
+
+  .legend {
+    font-size: 0.72rem;
+    color: var(--muted);
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-top: 10px;
+  }
+  .legend b { color: var(--ink); }
+
+  .todos { list-style: none; }
+  .todos li {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-left: 5px solid var(--sun);
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin-bottom: 9px;
+    font-size: 0.88rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .todos li .num {
+    background: var(--sun);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.72rem;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 30px;
+    line-height: 1.8;
+  }
+  .editbox {
+    background: var(--sun-soft);
+    border: 1.5px dashed var(--sun);
+    border-radius: 14px;
+    padding: 13px 16px;
+    font-size: 0.76rem;
+    color: #8a6320;
+    margin-top: 16px;
+  }
+  .editbox b { color: var(--sun); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>マイホーム計画</h1>
+    <div class="sub">ハウスメーカー見積もり 進捗管理</div>
+    <div class="updated">最終更新：2026年5月17日</div>
+  </header>
+
+  <div class="summary">
+    <div class="sum-card">
+      <div class="label">検討中の会社</div>
+      <div class="value">3<small>社</small></div>
+    </div>
+    <div class="sum-card">
+      <div class="label">見積もり受領</div>
+      <div class="value">2<small>社</small></div>
+    </div>
+    <div class="sum-card">
+      <div class="label">予算の目安</div>
+      <div class="value">3,400<small>万円</small></div>
+    </div>
+    <div class="sum-card">
+      <div class="label">父からの援助</div>
+      <div class="value">1,000<small>万円</small></div>
+    </div>
+  </div>
+
+  <!-- スケジュール -->
+  <div class="sec-title">🗓 スケジュール・期限</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot done"></div>
+      <div class="tl-body">
+        <div class="tl-date">〜5月中旬</div>
+        <div class="tl-task">夢創・桧家の見積もり受領<span class="tl-badge done">完了</span></div>
+        <div class="tl-sub">2社の実数見積もりが手元にある</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot now"></div>
+      <div class="tl-body">
+        <div class="tl-date hot">6月14日</div>
+        <div class="tl-task">アイフルホーム 見積もり打ち合わせ<span class="tl-badge now">予定</span></div>
+        <div class="tl-sub">船橋直営店にて。GX・建て得対応、総額を確認する</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">6月中</div>
+        <div class="tl-task">夢創に「別途込み総額」を再依頼<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">解体・地盤改良・外構・諸費用を含めた総額を出してもらう</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">6〜7月</div>
+        <div class="tl-task">3社を同じ土俵で比較<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">総額・性能・補助金・保証を一覧にして絞り込む</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">8月〜</div>
+        <div class="tl-task">本人就職後にローン・着工の段取り<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">勤務実績が整う頃にローン契約。贈与・登記の準備も</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future"></div>
+      <div class="tl-body">
+        <div class="tl-date">2026年内</div>
+        <div class="tl-task">父からの贈与を実行<span class="tl-badge future">未</span></div>
+        <div class="tl-sub">非課税特例は年内贈与が条件。着工時期に合わせて</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 各社 -->
+  <div class="sec-title">🏠 各社の状況</div>
+
+  <!-- 桧家 -->
+  <div class="company">
+    <div class="company-head hinokiya">
+      <div class="company-name">桧家住宅<small>V-13-5 プラン</small></div>
+      <div class="status done">見積もり受領</div>
+    </div>
+    <div class="company-body">
+      <div class="row"><span class="k">総額（別途込み）</span><span class="v big">2,952<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">延床</span><span class="v">28坪</span></div>
+      <div class="row"><span class="k">坪単価（目安）</span><span class="v">約105万円/坪</span></div>
+      <div class="row"><span class="k">断熱性能</span><span class="v">等級5 相当（標準）</span></div>
+      <div class="row"><span class="k">特徴</span><span class="v">Z空調 込み</span></div>
+      <div class="row"><span class="k">太陽光</span><span class="v"><span class="tag q">要確認</span></span></div>
+      <div class="row"><span class="k">GX補助金</span><span class="v"><span class="tag q">要確認</span></span></div>
+      <div class="note">📌 別途込みの総額が明確。ただし断熱は等級5標準なので、GX（等級6以上）を狙うなら追加費用がかかる。延床28坪と他社より小さい点にも注意</div>
+    </div>
+  </div>
+
+  <!-- 夢創 -->
+  <div class="company">
+    <div class="company-head dream">
+      <div class="company-name">夢創ハウジング<small>担当：中澤氏</small></div>
+      <div class="status done">見積もり受領</div>
+    </div>
+    <div class="company-body">
+      <div class="row"><span class="k">建物本体</span><span class="v">2,695<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">総額（別途込み・推定）</span><span class="v big">約3,600<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">延床</span><span class="v">31坪</span></div>
+      <div class="row"><span class="k">断熱性能</span><span class="v">等級6 相当</span></div>
+      <div class="row"><span class="k">太陽光</span><span class="v">LIXIL建て得 <span class="tag ok">対応可</span></span></div>
+      <div class="row"><span class="k">外壁</span><span class="v">サイディング</span></div>
+      <div class="note">⚠️ 見積書は「建物のみ」。解体・地盤改良・外構・諸費用など約900万円が別途で乗る見込み。総額で比べると桧家より高くなる可能性</div>
+    </div>
+  </div>
+
+  <!-- アイフル -->
+  <div class="company">
+    <div class="company-head aiful">
+      <div class="company-name">アイフルホーム<small>船橋 直営店</small></div>
+      <div class="status wait">打ち合わせ予定</div>
+    </div>
+    <div class="company-body">
+      <div class="row"><span class="k">見積もり打ち合わせ</span><span class="v" style="color:var(--sun)">6月14日</span></div>
+      <div class="row"><span class="k">状況</span><span class="v">返信あり・日程確定</span></div>
+      <div class="row"><span class="k">断熱性能</span><span class="v"><span class="tag q">当日確認</span></span></div>
+      <div class="row"><span class="k">太陽光</span><span class="v"><span class="tag q">当日確認</span></span></div>
+      <div class="note">✅ 6/14の打ち合わせで聞くこと：別途込みの総額／断熱性能（UA値・等級）／GX補助金の対応／LIXIL建て得対応／保証内容</div>
+    </div>
+  </div>
+
+  <!-- 凡例 -->
+  <div class="legend">
+    <b>📊 見方のヒント</b><br>
+    比べるべきは「建物本体価格」ではなく<b>「別途込みの総額」</b>です。夢創のように建物だけ安く見えても、解体・外構・諸費用を足すと逆転することがあります。
+  </div>
+
+  <!-- 参考企業 -->
+  <div class="sec-title">📎 参考企業（今は見積もり依頼しない）</div>
+  <div class="company ref">
+    <div class="company-head clever">
+      <div class="company-name">クレバリーホーム<small>参考：Clevers</small></div>
+      <div class="status ref">参考</div>
+    </div>
+    <div class="company-body">
+      <div class="row"><span class="k">総額（参考・概算）</span><span class="v">約3,100<span class="yen">万円</span></span></div>
+      <div class="row"><span class="k">延床</span><span class="v">35坪</span></div>
+      <div class="row"><span class="k">断熱性能</span><span class="v">等級7 標準 <span class="tag ok">最高水準</span></span></div>
+      <div class="row"><span class="k">太陽光</span><span class="v">ゼロスタ<span class="tag ok">蓄電池込0円</span></span></div>
+      <div class="row"><span class="k">外壁</span><span class="v">タイル（メンテ費↓）</span></div>
+      <div class="note">📎 今は見積もり依頼しないが、比較の参考として記録。広くて高性能なのに総額が抑えめ。将来の選択肢として頭の片隅に</div>
+    </div>
+  </div>
+
+  <!-- 次にやること -->
+  <div class="sec-title">✅ 次にやること</div>
+  <ul class="todos">
+    <li><span class="num">1</span><span>6/14 アイフルホームの打ち合わせ（総額・性能・補助金・建て得・保証を確認）</span></li>
+    <li><span class="num">2</span><span>夢創に「別途込みの総額」を出してもらう（解体・地盤改良・外構・諸費用）</span></li>
+    <li><span class="num">3</span><span>桧家に確認：GX（等級6以上）に上げる追加費用／太陽光／補助金対応</span></li>
+    <li><span class="num">4</span><span>3社が揃ったら、同じ土俵（総額・性能・補助金・保証）で比較表を作る</span></li>
+    <li><span class="num">5</span><span>父の1,000万円：まず税務署に無料相談 → 登記の持分設計だけ専門家に確認</span></li>
+  </ul>
+
+  <div class="editbox">
+    <b>✏️ 更新のしかた</b><br>
+    新しい見積もりが届いたら、その内容をClaudeに伝えてください。最新の数字に更新したファイルを作り直します。スクショを撮ってLINEで共有、印刷してお父さまに渡すのもおすすめです。
+  </div>
+
+  <footer>
+    マイホーム計画 進捗管理ダッシュボード<br>
+    ※金額は概算・目安です。正式な見積もりで変動します
+  </footer>
+
+</div>
+</body>
 </html>
