@@ -2370,7 +2370,7 @@
   <div class="sec-title">☀️ 太陽光パネル有無の30年コスト比較</div>
   <details class="company">
     <summary class="company-head" style="background:linear-gradient(135deg,#e67e22,#c0392b);">
-      <div class="company-name">太陽光パネル・蓄電池の有無による30年コスト比較<small>大人4人・年間5,000kWh・電気代32円/kWh で試算</small></div>
+      <div class="company-name">太陽光パネル・蓄電池の有無による30年コスト比較<small>大人4人・年5,000kWh・32円/kWh・平日日中ほぼ不在を前提に試算</small></div>
       <div style="text-align:right;">
         <div class="status" style="background:#fff;color:#c0392b;">30年試算</div>
         <div class="tap-hint">▼ 詳細はタップ</div>
@@ -2385,17 +2385,20 @@
         各社で太陽光パネルの有無・仕組みが大きく異なり、初期費用だけで比較すると電気代やメンテ費用の差が見えない。30年トータルで見て「どのシナリオが得か」を確認するために試算。<br><br>
 
         <b>各社の太陽光スキーム</b><br>
-        ・<b>桧家住宅</b>：太陽光パネル・蓄電池 <span class="tag ng">なし</span><br>
-        ・<b>夢創（建て得）</b>：5kWパネルをLIXILが無償設置。<b>売電収入はLIXILに帰属</b>・<b>自家消費はOK</b>。契約期間15年。終了後パネルは自宅所有になり以降の売電も自分の収入に<br>
-        ・<b>一条工務店</b>：7kWパネル＋蓄電池（215万円で購入）。<b>FIT10年（16円/kWh）で売電→卒FIT後は8円/kWhで売電</b>。蓄電池で自家消費率65%を実現<br><br>
+        ・<b>桧家住宅</b>：太陽光パネル・蓄電池 <span class="tag ng">なし</span>（オプションで搭載は可能・要見積もり）<br>
+        ・<b>夢創（建て得）</b>：LIXILがパネルを無償設置。<b>容量は屋根の大きさ次第</b>（固定ではない・要確認）。<b>売電収入はLIXILに帰属</b>・<b>自家消費だけがオーナーの得</b>。契約15年。終了後パネルは自宅所有になり以降の売電も自分の収入に<br>
+        ・<b>一条工務店</b>：7kWパネル＋蓄電池（215万円で購入）。FITで売電→卒FIT後8円/kWh。蓄電池で自家消費率を底上げ<br><br>
 
-        <b>試算の前提</b><br>
-        ・大人4人家族・年間電力使用量：<b>5,000kWh</b><br>
-        ・現在の電気単価：<b>32円/kWh</b>（今後は上昇傾向のリスクあり）<br>
-        ・桧家：電気は全量買電<br>
-        ・夢創：自家消費率35%（売電はLIXIL分・自家消費分のみ恩恵）<br>
-        ・一条：自家消費率65%、パワコン交換15年で25万・蓄電池交換15年で125万を計上<br>
-        ・30年後の電気代上昇リスクは試算に含まず（実際は桧家の不利がさらに拡大する可能性）
+        <b>⚠️ 重要な前提：平日日中の在宅状況で結果が大きく変わる</b><br>
+        太陽光の恩恵は<b>「昼間に発電した電気をどれだけ自分で使えるか（自家消費率）」</b>で決まる。<b>平日日中ほぼ不在</b>だと、蓄電池なしの家は自家消費率が15〜20%程度まで下がる（在宅多めなら30〜40%）。蓄電池があれば昼の電気を夕方〜夜に回せるので不在でも60%前後を維持できる。<br>
+        → <b>下の試算は「平日日中ほぼ不在」を前提にした厳しめの数字</b>（わが家の生活に合わせて修正）<br><br>
+
+        <b>試算の前提（平日日中ほぼ不在ケース）</b><br>
+        ・大人4人家族・年間電力使用量：<b>5,000kWh</b>・電気単価<b>32円/kWh</b><br>
+        ・自家消費：蓄電池なし（桧家+太陽光・夢創）→ 年約1,500kWh / 蓄電池あり（一条）→ 年約3,000kWh<br>
+        ・売電単価（2026年度FIT）：1〜4年24円 → 5〜10年8.3円 → 卒FIT後8円<br>
+        ・パワコン交換15年で25万・一条の蓄電池交換15年で125万を計上<br>
+        ・電気代の将来上昇は試算に含まず（含めると太陽光ありが更に有利に）
         </span>
       </details>
 
@@ -2414,7 +2417,7 @@
             <td style="padding:4px 4px;">パネル容量</td>
             <td style="padding:4px 4px;text-align:right;"><span class="tag ng">なし</span></td>
             <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);">9.9kW<br><small>自己購入</small></td>
-            <td style="padding:4px 4px;text-align:right;">5kW<br><small>無償</small></td>
+            <td style="padding:4px 4px;text-align:right;">屋根次第<br><small>無償※</small></td>
             <td style="padding:4px 4px;text-align:right;">7kW<br><small>込み</small></td>
           </tr>
           <tr style="border-bottom:1px solid rgba(27,94,32,0.15);">
@@ -2425,71 +2428,78 @@
             <td style="padding:4px 4px;text-align:right;">あり</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(27,94,32,0.15);">
-            <td style="padding:4px 4px;">月の電気代</td>
+            <td style="padding:4px 4px;">月の電気代<br><small>（買電のみ）</small></td>
             <td style="padding:4px 4px;text-align:right;"><b>約1.3万</b></td>
-            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);">約5,300円<br><small>※売電別途</small></td>
-            <td style="padding:4px 4px;text-align:right;">約8,300円</td>
-            <td style="padding:4px 4px;text-align:right;color:#1b5e20;"><b>約920円</b></td>
+            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);">約9,300円<br><small>＋売電収入</small></td>
+            <td style="padding:4px 4px;text-align:right;">約9,300円<br><small>15年売電なし</small></td>
+            <td style="padding:4px 4px;text-align:right;color:#1b5e20;"><b>約5,300円</b></td>
           </tr>
           <tr style="border-bottom:1px solid rgba(27,94,32,0.15);">
             <td style="padding:4px 4px;">30年買電計</td>
             <td style="padding:4px 4px;text-align:right;">480万</td>
-            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);">192万</td>
-            <td style="padding:4px 4px;text-align:right;">300万</td>
-            <td style="padding:4px 4px;text-align:right;">33万</td>
+            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);">336万</td>
+            <td style="padding:4px 4px;text-align:right;">336万</td>
+            <td style="padding:4px 4px;text-align:right;">192万</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(27,94,32,0.15);">
             <td style="padding:4px 4px;">設備費計</td>
             <td style="padding:4px 4px;text-align:right;">0円</td>
             <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);">205万<br><small>パネル180<br>パワコン25</small></td>
-            <td style="padding:4px 4px;text-align:right;">0円<br><small>▲2万節約</small></td>
+            <td style="padding:4px 4px;text-align:right;">25万<br><small>パワコン<br>のみ</small></td>
             <td style="padding:4px 4px;text-align:right;">365万<br><small>設備215<br>+交換150</small></td>
           </tr>
           <tr style="border-bottom:1px solid rgba(27,94,32,0.15);">
             <td style="padding:4px 4px;">売電収入</td>
             <td style="padding:4px 4px;text-align:right;">0円</td>
-            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);color:#1b5e20;"><b>▲214万</b></td>
-            <td style="padding:4px 4px;text-align:right;">0円<br><small>LIXIL帰属</small></td>
-            <td style="padding:4px 4px;text-align:right;color:#1b5e20;">▲60万<br><small>概算</small></td>
+            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);color:#1b5e20;"><b>▲260万</b></td>
+            <td style="padding:4px 4px;text-align:right;color:#1b5e20;">▲42万<br><small>16年目〜</small></td>
+            <td style="padding:4px 4px;text-align:right;color:#1b5e20;">▲122万</td>
           </tr>
           <tr style="background:rgba(27,94,32,0.08);font-weight:bold;">
             <td style="padding:5px 4px;">30年トータル</td>
             <td style="padding:5px 4px;text-align:right;">約480万</td>
-            <td style="padding:5px 4px;text-align:right;background:rgba(255,180,0,0.15);color:#7d4a00;"><b>約183万</b></td>
-            <td style="padding:5px 4px;text-align:right;">約298万</td>
-            <td style="padding:5px 4px;text-align:right;color:#1b5e20;">約330万</td>
+            <td style="padding:5px 4px;text-align:right;background:rgba(255,180,0,0.15);color:#7d4a00;"><b>約281万</b></td>
+            <td style="padding:5px 4px;text-align:right;">約319万</td>
+            <td style="padding:5px 4px;text-align:right;color:#1b5e20;">約435万</td>
           </tr>
           <tr style="background:rgba(27,94,32,0.05);">
             <td style="padding:4px 4px;">桧家との比較</td>
             <td style="padding:4px 4px;text-align:right;">基準</td>
-            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);color:#7d4a00;"><b>297万<br>お得 ✅</b></td>
-            <td style="padding:4px 4px;text-align:right;color:#1b5e20;"><b>182万<br>お得 ✅</b></td>
-            <td style="padding:4px 4px;text-align:right;color:#1b5e20;"><b>150万<br>お得 ✅</b></td>
+            <td style="padding:4px 4px;text-align:right;background:rgba(255,180,0,0.08);color:#7d4a00;"><b>199万<br>お得 ✅</b></td>
+            <td style="padding:4px 4px;text-align:right;color:#1b5e20;"><b>161万<br>お得 ✅</b></td>
+            <td style="padding:4px 4px;text-align:right;color:#1b5e20;"><b>45万<br>お得＋停電対策</b></td>
           </tr>
         </table>
+        <small style="color:#555;">※建て得の容量は屋根の大きさで決まる（固定ではない・要確認）。上記は「平日日中ほぼ不在」前提の厳しめ試算。在宅が多ければ各シナリオとも自家消費が増えて30〜100万改善する（特に蓄電池なしが恩恵を受ける）。</small>
 
         <b>費用以外の恩恵</b><br>
         ・<b>夢創（建て得）</b>：初期費用0円でパネル取得。設備費リスクなし。ただし売電収入15年間はLIXILに帰属<br>
-        ・<b>一条（蓄電池）</b>：停電時も蓄電池から給電可能（防災面の安心感）。電気代が月920円水準まで下がり、将来の電気代上昇リスクをほぼ遮断できる<br>
+        ・<b>一条（蓄電池）</b>：停電時も蓄電池から給電可能（防災面の安心感）。<b>平日日中に不在でも自家消費率を保てる唯一のスキーム</b>（昼の発電を蓄電池に貯めて夜使える）。電気代も最も低く抑えられる<br>
         ・<b>桧家</b>：設備費0円・メンテ不要だが、30年間の電気代が最も高く、将来の電力価格上昇に対してノーガード<br><br>
 
-        <b>⚠️ 注意点</b><br>
-        ・夢創の建て得パネル容量（5kWは仮定）→ 実際の容量を確認することで試算の精度が上がる<br>
-        ・一条の蓄電池は15年で交換が必要（約125万円）。この出費は25年目前後の大型出費集中時期と重なる<br>
-        ・電気代32円/kWh は現在水準。今後の上昇により桧家の不利がさらに拡大する可能性あり<br>
-        ・試算はあくまで目安。実際の発電量・消費量・電力単価の変動で結果は変わる
+        <b>🏠 平日日中の在宅状況がカギ（最重要）</b><br>
+        ・<b>建て得（夢創）は「自家消費だけが得」なスキーム</b>。平日日中ほぼ不在だと、せっかく発電した電気の大半をLIXILに無償で渡すことになり、オーナーの恩恵が小さくなる（＝建て得が最も不在の影響を受ける）<br>
+        ・<b>自分で買ったパネル（桧家+太陽光）は不在でも余剰を売電できる</b>ので、影響は相対的に小さい<br>
+        ・<b>蓄電池（一条）は昼の発電を夜に回せる</b>ので、不在でも自家消費率を保てる＝一番ブレに強い<br>
+        ・💡 <b>低コストな対策</b>：蓄電池なしでも「おひさまエコキュート（昼にお湯を沸かす設定）」を使えば、不在でも自家消費を年+1,000kWh前後（約3万円/年）押し上げられる<br><br>
+
+        <b>⚠️ その他の注意点</b><br>
+        ・<b>建て得の容量は屋根の大きさで決まる</b>（5kW固定ではない）。37坪なら5kW超も載る可能性あり → 夢創/LIXILに実容量を要確認<br>
+        ・一条の蓄電池は15年で交換が必要（約125万円）。25年目前後の大型出費集中時期と重なる<br>
+        ・電気代32円/kWh は現在水準。今後の上昇により桧家（太陽光なし）の不利がさらに拡大する<br>
+        ・試算はあくまで目安。発電量・消費量・在宅状況・電力単価で結果は大きく変わる
         </span>
       </details>
 
       <details class="note" style="background:#fff3e0;color:#6d4c00;border-left:3px solid #fb8c00;">
         <summary>🔶 桧家で太陽光10kWを後付けしたらどうなる？（試算）</summary>
         <span class="dc">
-        <b>前提</b><br>
+        <b>前提（平日日中ほぼ不在ケース）</b><br>
         ・システム容量：<b>9.9kW</b>（住宅用FIT適用のため10kW未満で申請）<br>
         ・設置費用：<b>約180万円</b>（桧家エネレボZの実績単価〜一般相場の間で高めに設定した概算）<br>
         ・年間発電量：約10,000kWh（10kW × 1,000時間、日本平均日照）<br>
-        ・自家消費率：<b>約30%</b>（蓄電池なし）→ 自家消費3,000kWh・売電7,000kWh<br>
-        ・グリッドから購入：5,000 - 3,000 = <b>2,000kWh/年</b>（夜間など）<br>
+        ・自家消費率：<b>約15%</b>（蓄電池なし・平日日中不在）→ 自家消費1,500kWh・売電8,500kWh<br>
+        ・グリッドから購入：5,000 - 1,500 = <b>3,500kWh/年</b>（夜間・不在時間帯など）<br>
         ・売電単価（2026年度FIT）：最初4年間<b>24円</b>→ 5〜10年目<b>8.3円</b>→ 卒FIT後<b>8円</b><br><br>
 
         <b>30年の費用・収入内訳</b><br>
@@ -2508,44 +2518,45 @@
           </tr>
           <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
             <td style="padding:5px 5px;">30年間の買電費用</td>
-            <td style="padding:5px 5px;text-align:right;">約192万円</td>
+            <td style="padding:5px 5px;text-align:right;">約336万円</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
             <td style="padding:5px 5px;">売電収入（1〜4年：24円 / 5〜10年：8.3円 / 11〜30年：8円）</td>
-            <td style="padding:5px 5px;text-align:right;color:#1b5e20;"><b>▲214万円</b>（収入）</td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;"><b>▲260万円</b>（収入）</td>
           </tr>
           <tr style="background:rgba(109,76,0,0.08);font-weight:bold;">
             <td style="padding:6px 5px;">30年トータル</td>
-            <td style="padding:6px 5px;text-align:right;"><b>約183万円</b></td>
+            <td style="padding:6px 5px;text-align:right;"><b>約281万円</b></td>
           </tr>
         </table>
+        <small style="color:#555;">※日中も在宅が多ければ自家消費が増え、トータルは200万円台前半まで下がる。</small><br><br>
 
-        <b>他シナリオとの比較</b><br>
+        <b>他シナリオとの比較（平日日中ほぼ不在）</b><br>
         <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:6px 0;">
           <tr style="background:rgba(109,76,0,0.12);">
             <th style="padding:6px 5px;text-align:left;">シナリオ</th>
             <th style="padding:6px 5px;text-align:right;">30年コスト</th>
             <th style="padding:6px 5px;text-align:right;">桧家との差</th>
           </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);background:rgba(255,180,0,0.1);">
+            <td style="padding:5px 5px;"><b>桧家＋太陽光10kW</b> 👈</td>
+            <td style="padding:5px 5px;text-align:right;"><b>約281万円</b></td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;"><b>約199万円 お得</b> ✅</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">夢創（建て得）</td>
+            <td style="padding:5px 5px;text-align:right;">約319万円</td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;">約161万円 お得</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">一条（7kW＋蓄電池）</td>
+            <td style="padding:5px 5px;text-align:right;">約435万円</td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;">約45万円 お得＋停電対策</td>
+          </tr>
           <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
             <td style="padding:5px 5px;">桧家（太陽光なし）</td>
             <td style="padding:5px 5px;text-align:right;">約480万円</td>
             <td style="padding:5px 5px;text-align:right;">基準</td>
-          </tr>
-          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);background:rgba(255,180,0,0.1);">
-            <td style="padding:5px 5px;"><b>桧家＋太陽光10kW</b> 👈</td>
-            <td style="padding:5px 5px;text-align:right;"><b>約183万円</b></td>
-            <td style="padding:5px 5px;text-align:right;color:#1b5e20;"><b>約297万円 お得</b> ✅</td>
-          </tr>
-          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
-            <td style="padding:5px 5px;">夢創（建て得5kW）</td>
-            <td style="padding:5px 5px;text-align:right;">約298万円</td>
-            <td style="padding:5px 5px;text-align:right;color:#1b5e20;">約182万円 お得</td>
-          </tr>
-          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
-            <td style="padding:5px 5px;">一条（7kW＋蓄電池）</td>
-            <td style="padding:5px 5px;text-align:right;">約330万円</td>
-            <td style="padding:5px 5px;text-align:right;color:#1b5e20;">約150万円 お得</td>
           </tr>
         </table>
 
@@ -2560,7 +2571,11 @@
       </details>
 
       <div class="note" style="background:var(--leaf-soft);color:var(--leaf-dark);">
-        💡 <b>まとめ：30年コストの安い順は 桧家+太陽光（183万）＞ 夢創建て得（298万）＞ 一条蓄電池（330万）＞ 桧家のみ（480万）。</b>桧家+太陽光が最安だが、初期費用180万の自己負担が必要（要見積もり）。夢創の建て得は設備費ゼロでパネルを取得できる点が強み。一条の蓄電池は停電対策・電気代月920円という圧倒的な快適さが武器。<br><br>
+        💡 <b>まとめ（平日日中ほぼ不在の前提）：30年コストの安い順は 桧家+太陽光（281万）＞ 夢創建て得（319万）＞ 一条蓄電池（435万）＞ 桧家のみ（480万）。</b><br>
+        ・<b>桧家+太陽光（自費10kW）が最安</b>。不在でも余剰を売電できるため。ただし初期費用180万の自己負担が必要（要見積もり）<br>
+        ・<b>夢創の建て得</b>は設備費ゼロが強みだが、<b>平日日中不在だと「自家消費しか得しない」仕組みの弱点が出て恩恵が縮む</b>（昼の発電の大半をLIXILに渡すことに）<br>
+        ・<b>一条の蓄電池</b>は30年コストでは一番高いが、<b>停電対策・不在でも自家消費を保てる・電気代が最も安い</b>のが武器。コストより安心・快適を取るなら有力<br><br>
+        ⚠️ <b>在宅が多い生活なら自家消費が増え、蓄電池なし勢（桧家+太陽光・夢創）がさらに有利になる。</b>逆に蓄電池ありの一条は在宅状況に左右されにくい。<br><br>
         ⚠️ <b>この比較は電気代・太陽光設備費のみが対象です。</b>家本体の建設費（各社の見積もり総額）の差は含んでいません。
       </div>
     </div>
