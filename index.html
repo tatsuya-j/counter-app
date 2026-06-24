@@ -2466,8 +2466,84 @@
         </span>
       </details>
 
+      <details class="note" style="background:#fff3e0;color:#6d4c00;border-left:3px solid #fb8c00;">
+        <summary>🔶 桧家で太陽光10kWを後付けしたらどうなる？（試算）</summary>
+        <span class="dc">
+        <b>前提</b><br>
+        ・システム容量：<b>9.9kW</b>（住宅用FIT適用のため10kW未満で申請）<br>
+        ・設置費用：<b>約280万円</b>（28万円/kW × 10kW、2026年相場。新築時同時設置は若干割安になる可能性あり）<br>
+        ・年間発電量：約10,000kWh（10kW × 1,000時間、日本平均日照）<br>
+        ・自家消費率：<b>約30%</b>（蓄電池なし）→ 自家消費3,000kWh・売電7,000kWh<br>
+        ・グリッドから購入：5,000 - 3,000 = <b>2,000kWh/年</b>（夜間など）<br>
+        ・売電単価（2026年度FIT）：最初4年間<b>24円</b>→ 5〜10年目<b>8.3円</b>→ 卒FIT後<b>8円</b><br><br>
+
+        <b>30年の費用・収入内訳</b><br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:6px 0;">
+          <tr style="background:rgba(109,76,0,0.12);">
+            <th style="padding:6px 5px;text-align:left;">項目</th>
+            <th style="padding:6px 5px;text-align:right;">金額</th>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">設置費（9.9kW）</td>
+            <td style="padding:5px 5px;text-align:right;">約280万円</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">パワコン交換（15年目）</td>
+            <td style="padding:5px 5px;text-align:right;">約25万円</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">30年間の買電費用</td>
+            <td style="padding:5px 5px;text-align:right;">約192万円</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">売電収入（1〜4年：24円 / 5〜10年：8.3円 / 11〜30年：8円）</td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;"><b>▲214万円</b>（収入）</td>
+          </tr>
+          <tr style="background:rgba(109,76,0,0.08);font-weight:bold;">
+            <td style="padding:6px 5px;">30年トータル</td>
+            <td style="padding:6px 5px;text-align:right;"><b>約283万円</b></td>
+          </tr>
+        </table>
+
+        <b>他シナリオとの比較</b><br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:6px 0;">
+          <tr style="background:rgba(109,76,0,0.12);">
+            <th style="padding:6px 5px;text-align:left;">シナリオ</th>
+            <th style="padding:6px 5px;text-align:right;">30年コスト</th>
+            <th style="padding:6px 5px;text-align:right;">桧家との差</th>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">桧家（太陽光なし）</td>
+            <td style="padding:5px 5px;text-align:right;">約480万円</td>
+            <td style="padding:5px 5px;text-align:right;">基準</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);background:rgba(255,180,0,0.1);">
+            <td style="padding:5px 5px;"><b>桧家＋太陽光10kW</b> 👈</td>
+            <td style="padding:5px 5px;text-align:right;"><b>約283万円</b></td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;"><b>約197万円 お得</b> ✅</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">夢創（建て得5kW）</td>
+            <td style="padding:5px 5px;text-align:right;">約298万円</td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;">約182万円 お得</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(109,76,0,0.15);">
+            <td style="padding:5px 5px;">一条（7kW＋蓄電池）</td>
+            <td style="padding:5px 5px;text-align:right;">約330万円</td>
+            <td style="padding:5px 5px;text-align:right;color:#1b5e20;">約150万円 お得</td>
+          </tr>
+        </table>
+
+        <b>⚠️ 注意点</b><br>
+        ・住宅用FIT（10年間）の対象は<b>9.9kW以下</b>。10kW以上は産業用（FIT20年・売電19円）となり手続きが複雑になる<br>
+        ・蓄電池（＋約150万円）を追加すると自家消費率が65%に上がり、電気代はさらに大幅削減できる<br>
+        ・設置費用は業者・メーカー・屋根形状で変動。桧家での取り扱い・見積もりは要確認<br>
+        ・桧家の屋根形状によっては10kW分のパネルが乗らない場合もあるため、面積確認が必要
+        </span>
+      </details>
+
       <div class="note" style="background:var(--leaf-soft);color:var(--leaf-dark);">
-        💡 <b>まとめ：コスト最小は夢創（建て得）、停電対策・電気代ゼロに近いのは一条。</b>桧家は30年で約180万円割高になる計算。夢創の建て得は「設備費ゼロでパネルを手に入れる」実質的に得な仕組みだが、15年間の売電収入を失う点がトレードオフ。<br><br>
+        💡 <b>まとめ：桧家に太陽光10kWを乗せると30年コストは約283万円で4シナリオ中最安。</b>夢創（建て得）の298万、一条の330万を上回るお得感。ただし初期費用280万の自己負担が必要。夢創の建て得は設備費ゼロでパネルを取得できる点が強み。<br><br>
         ⚠️ <b>この比較は電気代・太陽光設備費のみが対象です。</b>家本体の建設費（各社の見積もり総額）の差は含んでいません。
       </div>
     </div>
