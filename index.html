@@ -755,6 +755,102 @@
     </div>
   </div>
 
+  <!-- 打ち合わせ進捗管理 -->
+  <div class="sec-title">📝 打ち合わせ進捗管理（一条 仕様決め）</div>
+  <details class="company" open>
+    <summary class="company-head ichijo">
+      <div class="company-name">仕様・内装の打ち合わせ進捗<small>各項目の状況と決定内容を記録</small></div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;">
+        <div class="status ok">進行中</div>
+        <div class="tap-hint">▼ 詳細はタップ</div>
+      </div>
+    </summary>
+    <div class="company-body">
+
+      <div class="note" style="background:#f5f7fa;color:#555;font-size:0.75rem;">
+        🏷 <b>ステータスの見方：</b>　<span class="tag ng">未</span> これから　<span class="tag warn">検討中</span> 打合せ中・保留　<span class="tag ok">✅決定</span> 確定済み<br>
+        各項目に「決定した内容」をメモしていきます。打ち合わせ後にここを更新してください。
+      </div>
+
+      <!-- 間取り・構造 -->
+      <details class="note" open style="background:var(--leaf-soft);color:var(--leaf-dark);">
+        <summary>🏠 間取り・構造</summary>
+        <span class="dc">
+        <table style="width:100%;border-collapse:collapse;font-size:0.76rem;">
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.1);font-weight:700;"><td style="padding:5px 4px;">項目</td><td style="padding:5px 4px;text-align:center;width:64px;">状況</td><td style="padding:5px 4px;">決定内容・メモ</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">間取り確定（1F/2F）</td><td style="padding:5px 4px;text-align:center;"><span class="tag warn">検討中</span></td><td style="padding:5px 4px;color:#888;">30坪・1F15坪。リビング階段＋脱衣ランドリー2.5畳で検討</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">耐震等級</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">等級3か確認（地震保険50%割引）</td></tr>
+          <tr><td style="padding:5px 4px;">窓の位置・大きさ</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">日射・プライバシー・耐震のバランス</td></tr>
+        </table>
+        </span>
+      </details>
+
+      <!-- 内装（クロス・床・建具） -->
+      <details class="note" style="background:var(--sky-soft);color:#2a5b68;">
+        <summary>🎨 内装（クロス・床材・建具）</summary>
+        <span class="dc">
+        <table style="width:100%;border-collapse:collapse;font-size:0.76rem;">
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.1);font-weight:700;"><td style="padding:5px 4px;">項目</td><td style="padding:5px 4px;text-align:center;width:64px;">状況</td><td style="padding:5px 4px;">決定内容・メモ</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">床材（フローリング色）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">床暖房対応の薄いラグ前提で色選び</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">壁紙（クロス）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">アクセントクロスは吸音効果のあるものも検討（音対策）</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">建具（ドア・引戸）の色</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">洋室はLDKと引戸でつなぐ想定</td></tr>
+          <tr><td style="padding:5px 4px;">室内ドアのアンダーカット</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">床暖の暖気が各室に回る隙間を確保</td></tr>
+        </table>
+        </span>
+      </details>
+
+      <!-- 水回り設備 -->
+      <details class="note" style="background:var(--sun-soft);color:#8a6320;">
+        <summary>🚿 水回り設備（キッチン・風呂・洗面・トイレ）</summary>
+        <span class="dc">
+        <table style="width:100%;border-collapse:collapse;font-size:0.76rem;">
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.1);font-weight:700;"><td style="padding:5px 4px;">項目</td><td style="padding:5px 4px;text-align:center;width:64px;">状況</td><td style="padding:5px 4px;">決定内容・メモ</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">キッチン（型・色・食洗機）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">対面型。食洗機の音は響く点に注意</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">お風呂（サイズ・色）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">1坪UB想定</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">洗面台（独立・コンパクト）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">脱衣と分離・廊下側からアクセス</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">脱衣所兼ランドリー（2.5畳）</td><td style="padding:5px 4px;text-align:center;"><span class="tag warn">検討中</span></td><td style="padding:5px 4px;color:#888;">室内干しバー・可動棚・乾燥機</td></tr>
+          <tr><td style="padding:5px 4px;">トイレ（位置・仕様）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">寝室の隣を避ける（水流音対策）</td></tr>
+        </table>
+        </span>
+      </details>
+
+      <!-- 電気・設備 -->
+      <details class="note" style="background:#f0f0f0;color:#444;">
+        <summary>🔌 電気・設備（コンセント・照明・空配管）</summary>
+        <span class="dc">
+        <table style="width:100%;border-collapse:collapse;font-size:0.76rem;">
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.1);font-weight:700;"><td style="padding:5px 4px;">項目</td><td style="padding:5px 4px;text-align:center;width:64px;">状況</td><td style="padding:5px 4px;">決定内容・メモ</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">コンセント位置・数</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">バルコニー防水コンセント（プール/BBQ用）も</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">照明プラン</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;"></td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">V2H用先行空配管</td><td style="padding:5px 4px;text-align:center;"><span class="tag warn">伝え済</span></td><td style="padding:5px 4px;color:#888;">担当に伝達済・電気図面で再確認</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">CD管（LAN先行配管）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">1F中央→各部屋。1〜3万で後々ラク</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">バルコニー水栓・排水</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">プール・BBQ用。新築時に仕込む</td></tr>
+          <tr><td style="padding:5px 4px;">太陽光パネル P型/N型</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">型番確認（N型が高性能）</td></tr>
+        </table>
+        </span>
+      </details>
+
+      <!-- 外構・その他 -->
+      <details class="note" style="background:var(--rose-soft);color:#8a4a4a;">
+        <summary>🌳 外構・その他</summary>
+        <span class="dc">
+        <table style="width:100%;border-collapse:collapse;font-size:0.76rem;">
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.1);font-weight:700;"><td style="padding:5px 4px;">項目</td><td style="padding:5px 4px;text-align:center;width:64px;">状況</td><td style="padding:5px 4px;">決定内容・メモ</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">カーポート（2台分）</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">埼玉は50〜80万＋土間15〜30万が目安</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">バルコニー（半屋根）</td><td style="padding:5px 4px;text-align:center;"><span class="tag warn">検討中</span></td><td style="padding:5px 4px;color:#888;">プール・BBQ用。積載荷重を要確認</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.06);"><td style="padding:5px 4px;">外構プラン全体</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">HM経由より外構専門業者が1〜3割安い</td></tr>
+          <tr><td style="padding:5px 4px;">カーテン・ブラインド</td><td style="padding:5px 4px;text-align:center;"><span class="tag ng">未</span></td><td style="padding:5px 4px;color:#888;">リビング階段にロールスクリーン（音・温熱対策）</td></tr>
+        </table>
+        </span>
+      </details>
+
+      <div class="note" style="background:#e8f5e9;color:#1b5e20;font-size:0.75rem;">
+        💡 <b>使い方：</b>打ち合わせが終わったら、決まった項目のステータスを <span class="tag ok">✅決定</span> に変えて、右側に決定内容（色・型番・金額など）を書き込んでいきます。「言った / 言わない」を防ぐ記録にもなります。新しい打ち合わせ項目が出てきたら、その都度この表に追加していきましょう。
+      </div>
+
+    </div>
+  </details>
+
   <!-- 各社 -->
   <div class="sec-title">🏠 各社の状況（依頼床面積：おおむね32〜35坪）</div>
 
