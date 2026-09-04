@@ -3128,6 +3128,34 @@
         </span>
       </details>
 
+      <details class="note" open style="background:#f0f0f0;color:#444;">
+        <summary>🔋 蓄電池の運転設定（入居後すぐ使う実用情報）</summary>
+        <span class="dc">
+        <b>■ 前提：一条の蓄電池はLFP（リン酸鉄）なので、EVほど神経質にならなくてよい</b><br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:4px 0;">
+          <tr style="background:rgba(0,0,0,0.06);font-weight:700;"><td style="padding:5px 4px;"></td><td style="padding:5px 4px;">EV（多くはNMC）</td><td style="padding:5px 4px;">一条の蓄電池（LFP）</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.08);"><td style="padding:5px 4px;">満充電・深放電への耐性</td><td style="padding:5px 4px;">弱い（80%/20%運用が推奨）</td><td style="padding:5px 4px;"><b>強い</b></td></tr>
+          <tr><td style="padding:5px 4px;">サイクル寿命</td><td style="padding:5px 4px;">数千サイクル</td><td style="padding:5px 4px;"><b>約12,000サイクル</b></td></tr>
+        </table>
+        ただし一般論として「0%→100%→0%」より「20%→100%→20%」の方が長持ちするため、<b>下限だけは少し残す運用が推奨</b>。<br><br>
+
+        <b>■ 一条で設定できること（パワーモニターアプリ・リモコン・外出先からも可）</b><br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:4px 0;">
+          <tr style="background:rgba(0,0,0,0.06);font-weight:700;"><td style="padding:5px 4px;">設定項目</td><td style="padding:5px 4px;">内容・推奨値</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.08);"><td style="padding:5px 4px;"><b>運転モード（4種）</b></td><td style="padding:5px 4px;">①ノーマル（指定時間に買電で充電）②<b>節エネ（太陽光からの充電を優先・余剰は売電）</b>③スマート（①②のハイブリッド）④蓄電（満充電を維持・災害対策）</td></tr>
+          <tr style="border-bottom:1px solid rgba(0,0,0,0.08);"><td style="padding:5px 4px;"><b>使い切りレベル（放電下限）</b></td><td style="padding:5px 4px;"><b>15〜20%からスタート</b>が推奨。← <b>電池保護に効くのはこちら</b></td></tr>
+          <tr><td style="padding:5px 4px;">夜間充電上限</td><td style="padding:5px 4px;">天候に応じて50〜80%で調整。<b>目的は電池保護ではなく経済性</b>（翌日タダの太陽光を入れる余地を残すため）</td></tr>
+        </table>
+        ⚠️ <b>EVのような「常時80%で充電を止める」設定は確認できず</b>（存在しない可能性が高い）。ただしLFPなので上限側は気にしなくてよい。<b>「使い切りレベルを15〜20%」に設定するだけで電池保護としては十分。</b><br><br>
+
+        <b>■ 🚨 わが家は推奨設定が一般論と変わる</b><br>
+        ネット上の推奨設定（夜間に安く充電→昼に使う）は<b>「夜間が安い電気プラン」が前提</b>。しかしわが家は<b>エコキュートを昼間・太陽光で沸かす方針＋基本料金0円のフラット単価プラン</b>を検討中で、<b>「夜間が安い」という前提がない</b>。<br>
+        → <b>「節エネモード」（太陽光からの充電を優先）が本命。</b>夜間に買電して充電する「ノーマルモード」を使う意味がほとんどない。<b>電気プランと蓄電池のモード設定はセットで考えること。</b><br><br>
+
+        <b>💡 メーカーの手がかり：一条の蓄電池は田淵電機（現・ダイヤゼブラ電機）製という情報あり</b>（※モデルにより異なる可能性）。<b>同社はV2H製品「EIBS V（パワコン連動型）」も出している</b>ため、もし一条のパワコンも同社製なら、将来<b>変換ロスの少ない"連動型V2H"が選べる可能性</b>がある。→ V2H検討時にパワコンのメーカー・型番を確認すること。
+        </span>
+      </details>
+
     </div>
   </details>
 
