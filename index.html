@@ -1537,6 +1537,35 @@
         </span>
       </details>
 
+      <details class="note" open style="background:#e1f5fe;color:#01579b;border-left:3px solid #0288d1;">
+        <summary>🔢 【混乱しがち】太陽光の数字を整理：8kW？10kW？11kW？ → <b>パネル11.76kW／申請9.9kW が確定値</b></summary>
+        <span class="dc">
+        <b>■ どの数字がどこから来たか</b><br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:6px 0;">
+        <tr style="background:rgba(2,136,209,0.15);"><th style="padding:4px 5px;text-align:left;">数字</th><th style="padding:4px 5px;text-align:left;">出どころ</th><th style="padding:4px 5px;text-align:left;">状態</th></tr>
+        <tr style="border-bottom:1px solid rgba(2,136,209,0.2);"><td style="padding:4px 5px;">7.0kW</td><td style="padding:4px 5px;">一条・6/18資金計画書</td><td style="padding:4px 5px;">過去の提案（177.6万円）</td></tr>
+        <tr style="border-bottom:1px solid rgba(2,136,209,0.2);"><td style="padding:4px 5px;">8.19kW</td><td style="padding:4px 5px;"><b>桧家住宅</b>のエネレボZ見積もり</td><td style="padding:4px 5px;">一条の話ではない</td></tr>
+        <tr style="border-bottom:1px solid rgba(2,136,209,0.2);"><td style="padding:4px 5px;">10.0kW</td><td style="padding:4px 5px;">一条・6/30御見積書</td><td style="padding:4px 5px;">過去（215万円）</td></tr>
+        <tr style="border-bottom:1px solid rgba(2,136,209,0.2);background:rgba(2,136,209,0.08);"><td style="padding:4px 5px;"><b>11.76kW</b></td><td style="padding:4px 5px;">一条・9/11資金計画書＋CAD図面</td><td style="padding:4px 5px;"><b>← 現在の確定値（パネル容量・237.85万円）</b></td></tr>
+        <tr><td style="padding:4px 5px;"><b>9.9kW</b></td><td style="padding:4px 5px;">同・CAD図面の「申請」欄</td><td style="padding:4px 5px;"><b>← 電力会社への申請容量（パワコン上限）</b></td></tr>
+        </table>
+
+        <b>■ 11.76kWと9.9kWは別物（ここが一番ややこしい）</b><br>
+        CAD図面の記載：<i>「屋根① 横48枚 245W 11.760kW ／ TOTAL 11.760kW（申請：9.900kW）／ 買取制度 余剰（10kW未満申請）／ 電力会社 東京電力」</i><br>
+        ・<b>11.76kW＝パネル容量</b>（245W × 48枚）＝屋根に載っている板の合計能力<br>
+        ・<b>9.9kW＝パワコンの出力上限</b>＝電力会社への申請値<br>
+        → これが<b>「過積載」</b>。パネルを多めに載せて、出口（パワコン）は9.9kWで絞る構成。<br>
+        <b>なぜ9.9kWで絞るのか：</b>10kW以上は<b>産業用</b>扱いになり、買取期間は20年に伸びるが単価が下がり、定期点検義務や税務処理が発生する。<b>10kW未満の住宅用（余剰買取）の方が家庭には有利</b>なので9.9kWに抑えるのが定石。<br><br>
+
+        <b>■ 結論：今の構成でちょうどいい（増やす必要も減らす必要もない）</b><br>
+        ① <b>過積載比率が理想的</b>：11.76 ÷ 9.9 ＝ <b>1.19倍</b>。適正範囲1.2〜1.3倍の下限あたりで、ピークカットのロスは年1〜3%に収まる。14kWまで載せると1.41倍になりロスが8〜12%に膨らんで効率が落ちる<br>
+        ② <b>発電量が消費量の約1.7倍</b>：年間発電 約11,500kWh に対し、想定消費は<b>約6,000〜7,000kWh/年</b>（4人・オール電化・全館床暖房・31.5坪）。これ以上増やしても余剰は売電に回るだけで、売電単価は自家消費で節約できる単価（約30円/kWh）の半分程度なので価値が落ちる<br>
+        ③ <b>経済性が成立</b>：自家消費で年約15.6万円の電気代削減＋売電 年約9.5万円 ＝ <b>年約25万円</b> → 237.85万円を<b>約9.5年で回収</b><br><br>
+
+        📌 もし屋根に余裕があるなら<b>12〜13kWが9.9kWパワコンでの実用上限</b>。ただし48枚で屋根①が埋まっている可能性が高い。気になるなら一条に<b>「屋根にあと何枚載りますか？」</b>と確認を。
+        </span>
+      </details>
+
       <details class="note" open style="background:#fffde7;color:#7a6000;border-left:3px solid #fbc02d;">
         <summary>☀️ 太陽光11.76kWは10kWに戻すべき？ → <b>戻さない方がいい</b>（長期試算・冬の蓄電池充電）</summary>
         <span class="dc">
