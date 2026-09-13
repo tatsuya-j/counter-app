@@ -1684,6 +1684,25 @@
         </table>
         どちらも<b>払った以上に返ってくる</b>が、伸び率は落ちる（自家消費が頭打ちになり、増えた発電の大半が単価の安い売電に回るため）。<br><br>
 
+        <b>📐 1kWあたりに換算すると</b><br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:6px 0;">
+        <tr style="background:rgba(251,192,45,0.2);"><th style="padding:4px 5px;text-align:left;">平均（純プラス÷容量）</th><th style="padding:4px 5px;text-align:right;">30年後の純プラス</th><th style="padding:4px 5px;text-align:right;">1kWあたり</th></tr>
+        <tr style="border-bottom:1px solid rgba(251,192,45,0.3);"><td style="padding:4px 5px;">7.0kW</td><td style="padding:4px 5px;text-align:right;">+227万</td><td style="padding:4px 5px;text-align:right;"><b>32.4万円/kW</b></td></tr>
+        <tr style="border-bottom:1px solid rgba(251,192,45,0.3);"><td style="padding:4px 5px;">10.0kW</td><td style="padding:4px 5px;text-align:right;">+314万</td><td style="padding:4px 5px;text-align:right;"><b>31.4万円/kW</b></td></tr>
+        <tr><td style="padding:4px 5px;">11.76kW</td><td style="padding:4px 5px;text-align:right;">+349万</td><td style="padding:4px 5px;text-align:right;"><b>29.7万円/kW</b></td></tr>
+        </table>
+        → <b>容量が大きいほど1kWあたりの効率は落ちる</b>。ただしこれは「小さくすべき」ではなく「<b>大きくするほど旨みが薄まる</b>」という意味。判断に使うべきは下の<b>追加分だけの1kWあたり</b>：<br>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:6px 0;">
+        <tr style="background:rgba(251,192,45,0.2);"><th style="padding:4px 5px;text-align:left;">区間</th><th style="padding:4px 5px;text-align:right;">増える容量</th><th style="padding:4px 5px;text-align:right;">純プラスの増加</th><th style="padding:4px 5px;text-align:right;">その区間の1kWあたり</th></tr>
+        <tr style="border-bottom:1px solid rgba(251,192,45,0.3);"><td style="padding:4px 5px;">最初の7.0kW</td><td style="padding:4px 5px;text-align:right;">7.0kW</td><td style="padding:4px 5px;text-align:right;">+227万</td><td style="padding:4px 5px;text-align:right;"><b>32.4万円/kW</b></td></tr>
+        <tr style="border-bottom:1px solid rgba(251,192,45,0.3);"><td style="padding:4px 5px;">+3.0kW（7.0→10.0）</td><td style="padding:4px 5px;text-align:right;">3.0kW</td><td style="padding:4px 5px;text-align:right;">+87万</td><td style="padding:4px 5px;text-align:right;"><b>29.0万円/kW</b></td></tr>
+        <tr><td style="padding:4px 5px;">+1.76kW（10.0→11.76）</td><td style="padding:4px 5px;text-align:right;">1.76kW</td><td style="padding:4px 5px;text-align:right;">+35万</td><td style="padding:4px 5px;text-align:right;"><b>19.9万円/kW</b></td></tr>
+        </table>
+        <b>最後の1.76kWでも1kWあたり+19.9万円のプラス</b>（初期費用14.3万円/kWを差し引いた後の純額）。効率は落ちているがまだ十分に元が取れる水準。<br><br>
+
+        <b>なぜ効率が落ちるのか＝自家消費に回る割合が減るから</b><br>
+        自家消費率：<b>7.0kW＝61% → 10.0kW＝49% → 11.76kW＝44%</b>。自家消費は30円/kWhの価値だが売電は15円（11年目以降8.3円）。容量を増やすと余剰が単価の安い売電に流れるため、1kWあたりの価値が下がっていく。<br><br>
+
         <b>⚙️ 試算の前提（変われば結果も変わる）</b><br>
         ・発電量：1kWあたり年1,000kWh（埼玉の標準的な値）<br>
         ・パワコン9.9kWによるピークカット損失：10.0kWで約0.5%、11.76kWで約2.5%<br>
